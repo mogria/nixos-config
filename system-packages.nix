@@ -10,6 +10,8 @@
     direnv
     wireshark-cli
     wireshark-gtk
+    filezilla
+    keepass
   ];
 
 }
