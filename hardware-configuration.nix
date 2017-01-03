@@ -15,7 +15,7 @@
     # swap = { name = "swap"; device = "/dev/disk/by-uuid/f1d2eb76-b397-4efa-94fc-d1bd37c4f847"; allowDiscards = true; };
   }; 
 
-  fileSystems = [ boot = {
+  fileSystems = [{
     mountPoint = "/boot";
     label = "boot";
     device = "/dev/disk/by-uuid/FCD7-4831";
@@ -41,13 +41,12 @@
       label = "swap";
     };
     fsType = "swap";
-  } # {
-    #label = "encryptedswap";
-    #device = "/dev/sda2";
-    #fsType = "none";
-    #options = ["noauto"];
-  #}
-
+  } {
+    label = "encryptedswap";
+    device = "/dev/sda2";
+    fsType = "none";
+    options = ["noauto"];
+  }
   ];
 
   nix.maxJobs = lib.mkDefault 4;
