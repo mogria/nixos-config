@@ -11,8 +11,11 @@
       ./system-packages.nix
       ./graphical.nix
       ./users.nix
-      ./clamav.nix
       ./mysql.nix
+      ./apache2.nix
+      ./clamav.nix
+      ./bluetooth.nix
+      ./zsh.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,7 +23,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "voidbook"; # Define your hostname.
+  networking.extraHosts = "127.0.0.1 esther-loeffel";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+ 
+  systemd.generators = { "systemd-gpt-auto-generator" = "/dev/null"; };
+  # systemd.generator-packages = [ pkgs.systemd-cryptsetup-generator ];
 
   # Select internationalisation properties.
   i18n = {

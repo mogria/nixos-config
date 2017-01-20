@@ -4,14 +4,24 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     wget
-    vim
+    (import ./vim.nix)
     git
     chromium
     direnv
-    wireshark-cli
     wireshark-gtk
     filezilla
     keepass
+    thunderbird
+    inkscape
+    gimp
+    transmission_gtk
+    psmisc
+    libreoffice
+    evince
+    zsh
+    zsh-completions
+    zsh-navigation-tools
+    nix-zsh-completions
+    oh-my-zsh
   ];
-
 }

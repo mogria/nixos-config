@@ -9,6 +9,7 @@
     isNormalUser = true;
     uid = 1000;
     extraGroups = ["wheel" "mogria"];
+    shell = pkgs.zsh;
   };
 
   users.groups = [{ gid = 1000; name = "mogria"; }];
