@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./nixpkgs-config.nix
       ./system-packages.nix
       ./graphical.nix
       ./users.nix
@@ -43,6 +44,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Enable automatic updatedb
+  services.locate.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
