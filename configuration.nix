@@ -17,6 +17,7 @@
       ./clamav.nix
       ./bluetooth.nix
       ./zsh.nix
+      ./laptop-power.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
