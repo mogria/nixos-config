@@ -11,6 +11,7 @@
     echo '1' > '/sys/module/snd_hda_intel/parameters/power_save'
     echo '1500' > '/proc/sys/vm/dirty_writeback_centisecs'
     echo 'auto' > '/sys/bus/i2c/devices/i2c-2/device/power/control'
+    echo 'auto' > '/sys/bus/usb/devices/2-1.6/power/control'
     echo 'auto' > '/sys/bus/usb/devices/4-1.6/power/control'
     echo 'auto' > '/sys/bus/i2c/devices/i2c-0/device/power/control'
     echo 'auto' > '/sys/bus/i2c/devices/i2c-1/device/power/control'
