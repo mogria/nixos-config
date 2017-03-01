@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nixpkgs-config.nix
+      ./nix.nix
       ./system-packages.nix
       ./graphical.nix
       ./users.nix
