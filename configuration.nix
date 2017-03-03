@@ -15,7 +15,6 @@
       ./users.nix
       ./mysql.nix
       ./apache2.nix
-      ./clamav.nix
       ./i2p.nix
       ./bluetooth.nix
       ./zsh.nix
