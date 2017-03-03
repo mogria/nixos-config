@@ -20,6 +20,7 @@
       ./bluetooth.nix
       ./zsh.nix
       ./laptop-power.nix
+      ./dhcpd-raspi.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
