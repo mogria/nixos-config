@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     wget
     (import ./vim.nix)
+    ((pkgs.callPackage ./nix-home/package.nix) { })
     git
     chromium
     direnv
