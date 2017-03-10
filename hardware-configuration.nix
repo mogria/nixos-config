@@ -32,7 +32,14 @@
     fsType = "tmpfs";
     options = ["nosuid" "nodev" "relatime"];
   } {
-    label = "swap";
+    label = "encryptedswap";
+    device = "/dev/sda2";
+    fsType = "none";
+    options = ["noauto"];
+  }
+  ];
+
+  swapDevices = [{
     device = "/dev/mapper/swap";
     encrypted = {
       enable = true;
@@ -40,14 +47,8 @@
       keyFile = "/mnt-root/.swapkey";
       label = "swap";
     };
-    fsType = "swap";
-  } {
-    label = "encryptedswap";
-    device = "/dev/sda2";
-    fsType = "none";
-    options = ["noauto"];
-  }
-  ];
+    priority = 5;
+  }];
 
   nix.maxJobs = lib.mkDefault 4;
 }

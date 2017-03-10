@@ -20,6 +20,7 @@
       ./zsh.nix
       ./laptop-power.nix
       ./dhcpd-raspi.nix
+      ./zram-swap.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
