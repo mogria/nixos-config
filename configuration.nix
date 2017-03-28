@@ -22,6 +22,7 @@
       ./dhcpd-raspi.nix
       ./zram-swap.nix
       ./ilias-mount.nix
+      ./fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
