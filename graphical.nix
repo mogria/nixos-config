@@ -14,5 +14,11 @@
     enable = true;
   };
 
-  environment.gnome3.excludePackages = [ pkgs.gnome3.evolution pkgs.gnome3.gnome-software ];
+  environment.gnome3.excludePackages = [
+    pkgs.gnome3.evolution
+    pkgs.gnome3.gnome-software
+    pkgs.gnome3.vinagre
+    pkgs.gnome3.gnome-maps
+    pkgs.gnome3.epiphany
+  ];
 }
