@@ -9,7 +9,7 @@
     mogria = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["wheel" "mogria"];
+      extraGroups = ["wheel" "mogria" "davfs2"];
       shell = pkgs.zsh;
     };
 

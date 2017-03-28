@@ -25,5 +25,6 @@
     nix-zsh-completions
     oh-my-zsh
     discord
+    davfs2
   ];
 }
