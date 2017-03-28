@@ -27,11 +27,6 @@
     fsType = "ext4";
     options = ["noatime" "nodiratime" "discard"];
   } {
-    mountPoint = "/tmp";
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = ["nosuid" "nodev" "relatime"];
-  } {
     label = "encryptedswap";
     device = "/dev/sda2";
     fsType = "none";
@@ -51,4 +46,5 @@
   }];
 
   nix.maxJobs = lib.mkDefault 4;
+  nix.buildCores  = 4;
 }
