@@ -21,7 +21,6 @@
       pkgs.libertine
       pkgs.mononoki
       pkgs.montserrat
-      pkgs.nerdfonts
       pkgs.norwester-font
       pkgs.opensans-ttf
       pkgs.pecita
