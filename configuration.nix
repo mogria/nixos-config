@@ -15,13 +15,13 @@
       ./users.nix
       ./mysql.nix
       ./apache2.nix
-       # ./i2p.nix
+      #  ./i2p.nix
       ./bluetooth.nix
       ./zsh.nix
       ./laptop-power.nix
       ./dhcpd-raspi.nix
       ./zram-swap.nix
-      ./ilias-mount.nix
+      # ./ilias-mount.nix
       ./fonts.nix
     ];
 
