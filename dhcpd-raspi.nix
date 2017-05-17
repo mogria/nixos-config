@@ -1,5 +1,5 @@
 {
-  services.dhcpd = {
+  services.dhcpd4 = {
     enable = true;
     interfaces = [ "enp0s20u2" ];
     extraConfig = ''
@@ -20,6 +20,8 @@
       }
     ];
   };
+
+  # networking.interfaces.enp0s20u2.ip4 = [ { address = "10.1.1.35"; prefixLength = 24; } ];
 
   networking.nat = {
     enable = true;
