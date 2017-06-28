@@ -22,7 +22,7 @@ in {
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     # bind vi to vim because vim_configurable is used and doesn't provide vi
     shellAliases = { vi = "vim"; };
     promptInit = "";
