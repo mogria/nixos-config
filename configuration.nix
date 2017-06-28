@@ -56,7 +56,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.browsing = true;
+  services.printing.gutenprint = true;
 
+  # Enable classic unix at service
+  services.atd.enable = true;
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.09";
 
