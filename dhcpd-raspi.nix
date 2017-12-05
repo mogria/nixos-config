@@ -14,14 +14,16 @@
     '';
     machines = [
       {
-        ethernetAddress = "b8:27:eb:24:c1:ca";
+        ethernetAddress = "b8:27:eb:c8:43:b8";
         hostName = "raspberrypi.mshome.net";
         ipAddress = "10.1.1.20";
       }
     ];
   };
 
-  # networking.interfaces.enp0s20u2.ip4 = [ { address = "10.1.1.35"; prefixLength = 24; } ];
+  networking.interfaces.enp0s20u2.ip4 = [ { address = "10.1.1.35"; prefixLength = 24; } ];
+  networking.dhcpcd.denyInterfaces = [ "enp0s20u2" ];
+  networking.networkmanager.unmanaged = [ "enp0s20u2" ];
 
   networking.nat = {
     enable = true;

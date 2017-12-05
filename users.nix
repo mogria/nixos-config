@@ -18,8 +18,14 @@
       uid = 1001;
       extraGroups = ["loraine"];
     };
+
+    guest = {
+      isNormalUser = true;
+      uid = 1005;
+      extraGroups = ["guest"];
+    };
   };
 
-  users.groups = [{ gid = 1000; name = "mogria"; } { gid = 1001; name = "loraine"; }];
+  users.groups = [{ gid = 1000; name = "mogria"; } { gid = 1001; name = "loraine"; } { gid = 1005; name = "guest"; }];
 
 }

@@ -19,18 +19,23 @@
       ./bluetooth.nix
       ./zsh.nix
       ./laptop-power.nix
-      ./dhcpd-raspi.nix
+      # ./dhcpd-raspi.nix
       ./zram-swap.nix
       # ./ilias-mount.nix
       ./fonts.nix
+      ./adb.nix
+      ./guezzlpage
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.enableContainers = true;
+
   networking.hostName = "voidbook"; # Define your hostname.
   networking.extraHosts = "127.0.0.1 esther-loeffel";
+  networking.firewall.allowedTCPPorts = [ 4000 ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
  
   systemd.generators = { "systemd-gpt-auto-generator" = "/dev/null"; };
@@ -39,7 +44,7 @@
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "de_CH-latin1";
+    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
 
@@ -56,8 +61,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.browsing = true;
-  services.printing.gutenprint = true;
+  services.printing.browsing = false;
+  services.printing.drivers = [ pkgs.gutenprint ];
 
   # Enable classic unix at service
   services.atd.enable = true;

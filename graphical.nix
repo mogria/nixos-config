@@ -3,8 +3,7 @@
 {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "ch";
-  services.xserver.xkbVariant = "quertz";
+  services.xserver.layout = "us";
   services.xserver.xkbModel = "pc104";
   services.xserver.xkbOptions = "terminate:ctrl_alt_bksp, eurosign:e";
 
