@@ -13,28 +13,27 @@
       ./system-packages.nix
       ./graphical.nix
       ./users.nix
-      ./mysql.nix
-      ./apache2.nix
+      # ./mysql.nix
+      # ./apache2.nix
       #  ./i2p.nix
       ./bluetooth.nix
       ./zsh.nix
-      ./laptop-power.nix
+      # ./laptop-power.nix
       # ./dhcpd-raspi.nix
-      ./zram-swap.nix
+      # ./zram-swap.nix
       # ./ilias-mount.nix
-      ./fonts.nix
-      ./adb.nix
-      ./guezzlpage
+      # ./fonts.nix
+      # ./adb.nix
+      # ./guezzlpage
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.enableContainers = true;
 
   networking.hostName = "voidbook"; # Define your hostname.
-  networking.extraHosts = "127.0.0.1 esther-loeffel";
+  # networking.extraHosts = "127.0.0.1 esther-loeffel";
+
   networking.firewall.allowedTCPPorts = [ 4000 ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
  
@@ -66,7 +65,8 @@
 
   # Enable classic unix at service
   services.atd.enable = true;
+
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "16.09";
+  system.stateVersion = "17.09";
 
 }

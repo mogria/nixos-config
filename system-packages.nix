@@ -24,7 +24,6 @@
     zsh-navigation-tools
     nix-zsh-completions
     oh-my-zsh
-    discord
-    davfs2
+    # discord
   ];
 }
