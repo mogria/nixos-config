@@ -3,7 +3,11 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, ... }:
 
-{
+let
+  ssd = "/dev/disk/by-id/ata-Micron_1100_MTFDDAV256TBN_1711166AC81F";
+  encryptedRoot = "/dev/disk/by-uuid/3fcf8cef-09af-46b5-9ec9-f4f2409afb7e";
+  hdd = "/dev/disk/by-uuid/c0232ce6-9bef-43ea-b873-a9acec0e382e";
+in {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
@@ -11,23 +15,32 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.grub = {
-    enable = true;
-    devices = ["/dev/disk/by-id/ata-Micron_1100_MTFDDAV256TBN_1711166AC81F"];
-    efiSupport = true;
-    enableCryptodisk = true;
-  };
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.mitigateDMAAttacks = true;
   boot.initrd.luks.devices = {
     luks00ssd = {
-      device = "/dev/disk/by-uuid/3fcf8cef-09af-46b5-9ec9-f4f2409afb7e";
+      device = encryptedRoot;
       allowDiscards = true;
       preLVM = true;
     };
   };
+
+  # make sure the second hard disk gets decrypted
+  # by the key lying on the ssd, so mount it temporaily
+  boot.initrd.preLVMCommands = lib.mkAfter ''
+    echo Trying to get hddkey from the encrypted SSD
+    mkdir /mnt-getkey
+    wait_target "device" /dev/mapper/luks00ssd
+    mount -r -t ext4 /dev/mapper/luks00ssd /mnt-getkey || echo Couldnt mount SSD to get the key
+    wait_target "key file" /mnt-getkey/.hddkey
+    echo Trying to unlock
+    cryptsetup open --key-file /mnt-getkey/.hddkey ${hdd} luks01hdd || echo Unlocking failed
+    echo unmounting
+    umount /mnt-getkey
+    rmdir /mnt-getkey
+  '';
 
   fileSystems."/" =
     { device = "/dev/mapper/luks00ssd";
@@ -38,17 +51,6 @@
     { device = "/dev/disk/by-label/NIXOS_BOOT";
       fsType = "vfat";
     };
-
-  fileSystems."encryptedlvmdatahdd" =
-    { device = "/dev/mapper/luks01hdd";
-      encrypted = {
-        enable = true;
-        label = "luks01hdd";
-        blkDev = "/dev/disk/by-uuid/3fcf8cef-09af-46b5-9ec9-f4f2409afb7e";
-        keyFile = "/mnt-root/.hddkey";
-      };
-    };
-
 
   fileSystems."/home" =
     { device = "/dev/mapper/hdddata-home";
