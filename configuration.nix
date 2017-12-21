@@ -15,14 +15,14 @@
       ./users.nix
       # ./mysql.nix
       # ./apache2.nix
-      #  ./i2p.nix
+      # ./i2p.nix
       ./bluetooth.nix
       ./zsh.nix
-      # ./laptop-power.nix
+      ./laptop-power.nix
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
       # ./ilias-mount.nix
-      # ./fonts.nix
+      ./fonts.nix
       # ./adb.nix
       # ./guezzlpage
     ];
@@ -36,10 +36,8 @@
 
   networking.firewall.allowedTCPPorts = [ 4000 ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;
  
-  systemd.generators = { "systemd-gpt-auto-generator" = "/dev/null"; };
-  # systemd.generator-packages = [ pkgs.systemd-cryptsetup-generator ];
-
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
