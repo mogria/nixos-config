@@ -6,6 +6,7 @@
   services.xserver.layout = "us";
   services.xserver.xkbModel = "pc104";
   services.xserver.xkbOptions = "terminate:ctrl_alt_bksp, eurosign:e";
+  # services.xserver.videoDrivers = [ "nvidia" ]; # 303 #173
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.slim.enable = true;
