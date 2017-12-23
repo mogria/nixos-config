@@ -64,7 +64,7 @@ in {
 
   services.xserver.libinput = {
     enable = true;
-    dev = "/dev/input/by-path/pci-0000:00:15.0-platform-i2c_designware.0-mouse";
+    dev = "/dev/input/event11";
   };
 
   hardware.opengl.driSupport32Bit = true;
