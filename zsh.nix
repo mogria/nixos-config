@@ -27,6 +27,7 @@ in {
     shellAliases = { vi = "vim"; };
     promptInit = "";
     interactiveShellInit = ''
+      export TERM="xterm-256color"
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
       plugins=(git dircycle composer)
 
