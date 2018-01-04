@@ -17,6 +17,8 @@ in {
   boot.extraModulePackages = [ ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  hardware.cpu.intel.updateMicrocode = true;
+
 
   boot.initrd.luks.mitigateDMAAttacks = true;
   boot.initrd.luks.devices = {
@@ -64,10 +66,10 @@ in {
 
   services.xserver.libinput = {
     enable = true;
-    dev = "/dev/input/event11";
   };
 
-  hardware.opengl.driSupport32Bit = true;
-  # services.xserver.videoDrivers = ["nvidia"];
   nix.maxJobs = lib.mkDefault 8;
+
+  # hardware.opengl.driSupport32Bit = true;
+  # services.xserver.videoDrivers = ["nvidia"];
 }
