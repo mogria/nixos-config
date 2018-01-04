@@ -1,0 +1,64 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p sudo
+
+set -e -u
+
+echo "nix-utils% nixos-rebuild-all"
+
+if [ "$#" -lt 1 ]; then
+    echo "This script calls 'nixos-rebuild' and 'home-manager' for users which have it installed."
+    echo "Options for nixos-rebuild:"
+    echo ""
+    nixos-rebuild --help
+
+    echo ""
+    echo "The same parameters given to nixos-rebuild get also passed to home-manger if applicable."
+    exit 1
+fi
+
+# stage 1: rebuild the system
+if [ "$1" != "users" ]; then
+    nixos-rebuild "$@"
+    # reload the script itself, it might have changed
+    # (so only one nixos-rebuild-all is required to test a new version of this very script)
+    exec "${BASH_SOURCE[0]}" "users" "$@"
+fi
+
+# stage 2: rebuild the user homes
+shift
+
+PROFILES_DIR_PER_USER=/nix/var/nix/profiles/per-user
+
+home_manager_try_run() {
+    local user_profile="$1"
+    local user="$(basename "$user_profile")"
+    shift
+    local flag="$1"
+
+    local home_manager="$user_profile/profile/bin/home-manager"
+    echo "INFO running home-manager for user '$user'"
+    if [ -x "$home_manager" ]; then
+        if [ "x${flag-:}" == "x--upgrade" ]; then
+            sudo -i -u "$user" nix-env --upgrade
+        fi
+        sudo -i -u "$user" "$home_manager" "$@" || true
+    else
+        echo "WARN could not find home-manager for $user"
+        echo "INFO tried $home_manager"
+    fi
+}
+
+case "$1" in
+    switch|build)
+        for user_profile in "$PROFILES_DIR_PER_USER"/*; do
+            home_manager_try_run "$user_profile" "$@"
+        done
+    ;;
+    *)
+        echo "INFO only rebuilding user homes for when running: % nixos-rebuild-all {switch,build}"
+    ;;
+
+esac
+
+exit 0
+

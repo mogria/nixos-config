@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+readlink -f `which "$1"`
