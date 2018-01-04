@@ -13,7 +13,7 @@
       ./system-packages.nix
       ./graphical.nix
       ./users.nix
-      # ./mysql.nix
+      ./mysql.nix
       # ./apache2.nix
       # ./i2p.nix
       ./bluetooth.nix
@@ -25,16 +25,19 @@
       ./fonts.nix
       # ./adb.nix
       # ./guezzlpage
+      ./listenin.nix
+      ./34c3-cert.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
 
   boot.enableContainers = true;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "voidbook"; # Define your hostname.
   # networking.extraHosts = "127.0.0.1 esther-loeffel";
 
-  networking.firewall.allowedTCPPorts = [ 4000 ];
+  networking.firewall.allowedTCPPorts = [ ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
  
@@ -51,15 +54,19 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = false;
+    permitRootLogin = "no";
+    passwordAuthentication = false;
+  };
 
   # Enable automatic updatedb
   services.locate.enable = true;
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.browsing = false;
-  services.printing.drivers = [ pkgs.gutenprint ];
+  # services.printing.enable = true;
+  # services.printing.browsing = false;
+  # services.printing.drivers = [ pkgs.gutenprint ];
 
   # Enable classic unix at service
   services.atd.enable = true;
