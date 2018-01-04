@@ -17,7 +17,7 @@
       # ./apache2.nix
       # ./i2p.nix
       ./bluetooth.nix
-      ./zsh.nix
+      # ./zsh.nix
       ./laptop-power.nix
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
@@ -25,8 +25,8 @@
       ./fonts.nix
       # ./adb.nix
       # ./guezzlpage
-      ./listenin.nix
-      ./34c3-cert.nix
+      # ./listenin.nix
+      # ./34c3-cert.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
