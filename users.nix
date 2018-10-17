@@ -4,12 +4,12 @@
 
   users.enforceIdUniqueness = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to set a password with passwd.
   users.extraUsers = {
     mogria = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["wheel" "mogria" "networkmanager"];
+      extraGroups = [ "wheel" "mogria" "networkmanager" ];
       shell = pkgs.zsh;
     };
 
