@@ -52,4 +52,9 @@
       pkgs.corefonts
     ];
   };
+
+  i18n.consoleFont = "TamzenForPowerline8x16";
+  environment.systemPackages = [
+    pkgs.tamzen-console-font
+  ];
 }
