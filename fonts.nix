@@ -2,6 +2,20 @@
 
 {
   fonts = {
+    fontconfig = {
+      enable = true;
+      antialias = true;
+      cache32Bit = true;
+      defaultFonts = {
+        monospace = [ "Source Code Pro For Powerline" "Roboto Mono" "DejaVu Sans Mono" ];
+        sansSerif = [ "Roboto Regular" "DejaVu Sans" ];
+        serif = [ "Roboto Slab Regular" "DejaVu Serif" ];
+      };
+      ultimate = {
+        enable = true;
+        substitutions = "combi";
+      };
+    };
     enableDefaultFonts = true;
     enableFontDir = true;
     fonts = [
@@ -23,7 +37,6 @@
       pkgs.montserrat
       pkgs.norwester-font
       pkgs.opensans-ttf
-      pkgs.pecita
       pkgs.powerline-fonts
       pkgs.roboto
       pkgs.sampradaya
@@ -36,6 +49,7 @@
       pkgs.theano
       pkgs.ubuntu_font_family
       pkgs.vistafonts
+      pkgs.corefonts
     ];
   };
 }
