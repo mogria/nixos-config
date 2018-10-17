@@ -12,20 +12,43 @@
     inkscape
     gimp
     transmission_gtk
-    psmisc
     libreoffice
     evince
 
-    # shell / development stuff
+    # shell utilities
+    moreutils
+    patchutils
+    binutils
+    file
+    psmisc
+
+    unzip
+    zip
+
+    bc
+    dc
+    xxd
+
+    strace
+    ltrace
+
+    pciutils
+    iputils
+    inetutils
+    netcat
+    curl
     wget
+
+    # development stuff
     direnv
     git
+
+    # Only install the basic zsh, because of our user configuration
+    # The Plugins / completions are all handled by home-manager see:
+    #   /home/mogria/.config/nixpkgs/home.nix
     zsh
-    zsh-completions
-    zsh-navigation-tools
-    nix-zsh-completions
-    oh-my-zsh
+
+    manpages
     (import ./vim.nix)
-    # discord
   ];
 }
