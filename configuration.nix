@@ -13,6 +13,7 @@
       ./system-packages.nix
       ./graphical.nix
       ./users.nix
+      ./glances-tty.nix
       ./mysql.nix
       # ./apache2.nix
       # ./i2p.nix
