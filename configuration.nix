@@ -24,6 +24,7 @@
       # ./ilias-mount.nix
       ./fonts.nix
       # ./adb.nix
+      ./tmux.nix
       # ./guezzlpage
       # ./listenin.nix
       # ./34c3-cert.nix
