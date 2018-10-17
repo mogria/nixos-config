@@ -26,7 +26,6 @@
     zip
 
     bc
-    dc
     xxd
 
     strace
