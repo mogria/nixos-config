@@ -27,6 +27,12 @@ fi
 # stage 2: rebuild the user homes
 shift
 
+
+# hacky hack mc hack hack, wait a few seconds, because sometimes
+# the network is not yet available
+
+sleep 5
+
 PROFILES_DIR_PER_USER=/nix/var/nix/profiles/per-user
 
 home_manager_try_run() {
