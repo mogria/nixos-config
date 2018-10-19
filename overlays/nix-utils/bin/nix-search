@@ -3,7 +3,8 @@
 
 
 CACHE="$HOME/.cache/nix-search-cache"
-if ! ( [ -e $CACHE ] && [ $(stat -c %Y $CACHE) -gt $(( $(date +%s) - 3600 )) ] ); then
+if ! ( [ -e $CACHE ] && [ $(stat -c %Y $CACHE) -gt $(( $(date +%s) - 60 * 60 * 12 )) ] ); then
+    trap "rm $CACHE" EXIT
     echo "update cache" && nix-env -qa --json > "$CACHE"
 fi
 
