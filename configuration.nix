@@ -29,6 +29,9 @@
       # ./guezzlpage
       # ./listenin.nix
       # ./34c3-cert.nix
+      # ./wireguard.nix
+
+      ./searx.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
