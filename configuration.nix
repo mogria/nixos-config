@@ -34,10 +34,7 @@
       ./searx.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-
-  boot.enableContainers = true;
-  boot.kernelPackages = pkgs.linuxPackages;
+  # boot.enableContainers = true;
 
   networking.hostName = "voidbook"; # Define your hostname.
   # networking.extraHosts = "127.0.0.1 esther-loeffel";
