@@ -15,7 +15,7 @@
       ./users.nix
       ./glances-tty.nix
       ./mysql.nix
-      # ./apache2.nix
+      ./apache2.nix
       # ./i2p.nix
       ./bluetooth.nix
       # ./zsh.nix
