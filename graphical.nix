@@ -34,20 +34,15 @@
 
   services.xserver.updateDbusEnvironment = true;
 
-  programs.dconf.enable = true; # required for settings in gnome-terminal
   services.gnome3 = {
     # this is required for mounting android phones
     # over mtp://
     gvfs.enable = true;
-    gnome-terminal-server.enable = true;
   };
 
   # services.udev.packages = [ pkgs.gnome3.gnome_settings_daemon ];
 
   environment.systemPackages = [
-    # pkgs.gnome3.gconf, removed use gnome3.gconf instead
-    pkgs.gnome3.gnome_terminal
-
     # XFCE plugins
     pkgs.xfce.xfce4-systemload-plugin
     pkgs.xfce.xfce4-weather-plugin
