@@ -7,8 +7,8 @@
   services.xserver.xkbModel = "pc104";
   services.xserver.xkbOptions = "terminate:ctrl_alt_bksp, eurosign:e";
 
-  services.xserver.displayManager.slim = {
-    enable = true;
+  # services.xserver.displayManager.slim = {
+    # enable = true;
     # this is how you would specify your slim theme, but nixos has changed
     # to lightdm anyway soo....
     # theme = pkgs.writeTextFile {
@@ -16,6 +16,13 @@
     #  text = ''
     #  '';
     # };
+  # };
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    autoLogin = {
+      enable = true;
+      user = "mogria";
+    };
   };
   services.xserver.desktopManager.xfce = {
     enable = true;
