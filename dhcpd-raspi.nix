@@ -1,7 +1,8 @@
+{ config, pkgs, ... }:
 {
   services.dhcpd4 = {
     enable = true;
-    interfaces = [ "enp0s20u2" ];
+    interfaces = [ "enp4s0f1" ];
     extraConfig = ''
       option subnet-mask 255.0.0.0;
       option broadcast-address 10.255.255.255;
@@ -14,20 +15,20 @@
     '';
     machines = [
       {
-        ethernetAddress = "b8:27:eb:c8:43:b8";
+        ethernetAddress = "a8:1e:84:d6:39:e7";
         hostName = "raspberrypi.mshome.net";
         ipAddress = "10.1.1.20";
       }
     ];
   };
 
-  networking.interfaces.enp0s20u2.ip4 = [ { address = "10.1.1.35"; prefixLength = 24; } ];
-  networking.dhcpcd.denyInterfaces = [ "enp0s20u2" ];
-  networking.networkmanager.unmanaged = [ "enp0s20u2" ];
+  networking.interfaces.enp4s0f1.ipv4.addresses = [ { address = "10.1.1.35"; prefixLength = 24; } ];
+  networking.dhcpcd.denyInterfaces = [ "wlp3s0" ];
+  networking.networkmanager.unmanaged = [ "enp4s0f1" ];
 
   networking.nat = {
     enable = true;
-    externalInterface = "wlp2s0";
-    internalInterfaces = [ "enp0s20u2" ];
+    externalInterface = "wlp3s0";
+    internalInterfaces = [ "enp4s0f1" ];
   };
 }
