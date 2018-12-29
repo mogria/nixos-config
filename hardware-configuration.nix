@@ -47,6 +47,8 @@ in {
     };
   };
 
+  boot.tmpOnTmpfs = true;
+
   # make sure the second hard disk gets decrypted
   # by the key lying on the ssd, so mount it temporaily
   boot.initrd.preLVMCommands = lib.mkAfter ''
