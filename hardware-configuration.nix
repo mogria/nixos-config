@@ -12,13 +12,31 @@ in {
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd = {
+    # kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  };
+  services.xserver.videoDrivers = [ "intel" "nouveau" "modesetting" "vesa" /*"nvidia"*/]; 
+  boot.kernelModules = [ "cpufreq_stat" "cpufreq" ];
+  # boot.kernelModules = [ "kvm-intel" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  # boot.kernelParams = [  "nvidia-drm.modeset=1" ];
+  boot.extraModulePackages = with pkgs.linuxPackages; [ cpupower bbswitch x86_energy_perf_policy ];
+  # boot.extraModprobeConfig = "options nvidia-drm modeset=1";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.cpu.intel.updateMicrocode = true;
-
+  hardware.enableRedistributableFirmware = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
+    extraPackages32 = with pkgs.driversi686Linux; [ glxinfo mesa_drivers vaapiIntel libvdpau-va-gl vaapiVdpau ];
+  };
+  # hardware.bumblebee = {
+  # enable = true;
+  # driver = "nvidia";
+  # connectDisplay = true;
+  # };
 
   boot.initrd.luks.mitigateDMAAttacks = true;
   boot.initrd.luks.devices = {
@@ -70,6 +88,4 @@ in {
 
   nix.maxJobs = lib.mkDefault 8;
 
-  # hardware.opengl.driSupport32Bit = true;
-  # services.xserver.videoDrivers = ["nvidia"];
 }
