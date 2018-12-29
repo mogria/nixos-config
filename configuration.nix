@@ -57,9 +57,13 @@
 
   # Enable the OpenSSH daemon.
   services.openssh = {
-    enable = false;
+    enable = true;
     permitRootLogin = "no";
     passwordAuthentication = false;
+    /* listenAddresses = [ {
+      addr = "192.168.43.124";
+      port = 50022;
+    }]; */
   };
 
   # Enable automatic updatedb
