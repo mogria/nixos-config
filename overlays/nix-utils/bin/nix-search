@@ -4,7 +4,7 @@
 
 CACHE="$HOME/.cache/nix-search-cache"
 if ! ( [ -e $CACHE ] && [ $(stat -c %Y $CACHE) -gt $(( $(date +%s) - 60 * 60 * 12 )) ] ); then
-    trap "rm $CACHE" EXIT
+    trap "rm $CACHE" SIGKILL SIGTERM
     echo "update cache" && nix-env -qa --json > "$CACHE"
 fi
 
