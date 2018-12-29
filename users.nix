@@ -13,22 +13,18 @@
       shell = pkgs.zsh;
     };
 
-    loraine = {
+    # loraine was uid 1001
+
+    guest = {
       isNormalUser = true;
-      uid = 1001;
-      extraGroups = ["loraine"];
+      uid = 1005;
+      extraGroups = ["guest"];
     };
-    # guest = {
-    #   isNormalUser = true;
-    #   uid = 1005;
-    #   extraGroups = ["guest"];
-    # };
   };
 
   users.groups = [
     { gid = 1000; name = "mogria"; }
-    { gid = 1001; name = "loraine"; }
-    # { gid = 1005; name = "guest"; }
+    { gid = 1005; name = "guest"; }
   ];
 
 }
