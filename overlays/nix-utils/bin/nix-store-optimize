@@ -2,7 +2,15 @@
 #! nix-shell -i bash -p coreutils -p pv
 
 linebuf() {
-    stdbuf -eL -oL "$@"
+    stdbuf -i0 -eL -oL "$@"
 }
 
-linebuf nix-store --optimise -vv 2>&1 | linebuf grep 'hashing files in' | linebuf cut -d/ -f4 | linebuf cut -b1 | linebuf uniq | pv -l -s 36 > /dev/null
+cuthash() {
+  # cut by one so the size count for pv is number of store paths,
+  # which is nice to display
+  linebuf cut -d/ -f4 | linebuf cut -b1
+}
+
+num_store_paths=$(ls -f1 /nix/store | cuthash | wc -l) # f doesn't sort, faster count
+
+linebuf nix-store --optimise -vv 2>&1 | linebuf grep '^optimising path' | cuthash | linebuf uniq |  pv -l -s $num_store_paths > /dev/null
