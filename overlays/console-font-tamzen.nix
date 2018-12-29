@@ -5,7 +5,7 @@ self: super: {
     owner = "sunaku";
     repo = "tamzen-font";
     rev = "refs/tags/Tamzen-${version}";
-    sha256 = "0rpfdz7r0ps75nvw8kqz0nnkdgfgbhz1pvfnm5lra9yfz0h42g6v";
+    sha256 = "0rq5w918lbghqdbqdb03n65slzdb64lrwap0xs0q4cwpql3jc19w";
 
     downloadToTemp = true;
     recursiveHash = true;
@@ -13,7 +13,7 @@ self: super: {
       tar -xzvf $downloadedFile --strip-components=1
       mkdir -p $out/share/consolefonts
       cp -R psf/*.psf $out/share/consolefonts
-      ${super.pkgs.gzip}/bin/gzip $out/share/consolefonts/*
+      ${super.pkgs.gzip}/bin/gzip -n $out/share/consolefonts/*
     '';
   };
 }
