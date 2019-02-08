@@ -32,8 +32,6 @@
     ];
   };
 
-  services.xserver.updateDbusEnvironment = true;
-
   services.gnome3 = {
     # this is required for mounting android phones
     # over mtp://
