@@ -18,7 +18,6 @@
       ./apache2.nix
       # ./i2p.nix
       ./bluetooth.nix
-      # ./zsh.nix
       ./laptop-power.nix
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
