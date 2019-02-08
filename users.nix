@@ -9,7 +9,10 @@
     mogria = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "wheel" "mogria" "networkmanager" ];
+      extraGroups = [ "wheel" "mogria" "networkmanager"
+        "lp" "dialout" # printing, and usb device access
+        "scanner" # scanning
+      ];
       shell = pkgs.zsh;
     };
 
