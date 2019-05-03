@@ -13,14 +13,13 @@ in {
     ];
 
   boot.initrd = {
-    # kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      # kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   };
-  services.xserver.videoDrivers = [ "intel" "nouveau" "modesetting" "vesa" /*"nvidia"*/]; 
-  boot.kernelModules = [ "cpufreq_stat" "cpufreq" ];
-  # boot.kernelModules = [ "kvm-intel" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  services.xserver.videoDrivers = [ "nvidia" ]; 
+  # boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "kvm-intel"];
   # boot.kernelParams = [  "nvidia-drm.modeset=1" ];
-  boot.extraModulePackages = with pkgs.linuxPackages; [ cpupower bbswitch x86_energy_perf_policy ];
+  boot.extraModulePackages = with pkgs.linuxPackages; [ cpupower bbswitch x86_energy_perf_policy nvidia_x11 nvidiabl ];
   # boot.extraModprobeConfig = "options nvidia-drm modeset=1";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -30,12 +29,20 @@ in {
     enable = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
-    extraPackages32 = with pkgs.driversi686Linux; [ glxinfo mesa_drivers vaapiIntel libvdpau-va-gl vaapiVdpau ];
+    extraPackages32 = with pkgs.driversi686Linux; [ glxinfo vaapiIntel libvdpau-va-gl vaapiVdpau ];
+  };
+  hardware.nvidia = {
+    modesetting.enable = true;
+    optimus_prime = {
+      enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
   # hardware.bumblebee = {
-  # enable = true;
-  # driver = "nvidia";
-  # connectDisplay = true;
+    # enable = true;
+    # driver = "nvidia";
+    # connectDisplay = true;
   # };
 
   boot.initrd.luks.mitigateDMAAttacks = true;
