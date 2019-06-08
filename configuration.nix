@@ -31,6 +31,7 @@
       # ./wireguard.nix
 
       ./searx.nix
+      ./sudo.nix
     ];
 
   # boot.enableContainers = true;
