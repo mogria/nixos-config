@@ -7,8 +7,8 @@
       antialias = true;
       cache32Bit = true;
       defaultFonts = {
-        monospace = [ "Source Code Pro For Powerline" "Roboto Mono" "DejaVu Sans Mono" ];
-        sansSerif = [ "Roboto Regular" "DejaVu Sans" ];
+        monospace = [ "Monoid HalfTight Semi-Condensed" "Source Code Pro For Powerline" "Roboto Mono" "DejaVu Sans Mono" ];
+        sansSerif = [ "Monoid HalfTight Semi-Condensed" "Roboto Regular" "DejaVu Sans" ];
         serif = [ "Roboto Slab Regular" "DejaVu Serif" ];
       };
       ultimate = {
@@ -50,6 +50,7 @@
       pkgs.ubuntu_font_family
       pkgs.vistafonts
       pkgs.corefonts
+      pkgs.monoid
     ];
   };
 
