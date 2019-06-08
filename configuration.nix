@@ -31,6 +31,7 @@
       # ./wireguard.nix
 
       # ./searx.nix
+      ./docker.nix
       ./sudo.nix
     ];
 
