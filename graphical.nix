@@ -75,11 +75,6 @@
     1760 1761 1762 1763 1764
   ];
 
-  /* may not be required anymore, testing...
-   environment.variables.GIO_EXTRA_MODULES = [ "${lib.getLib pkgs.gnome3.dconf}/lib/gio/modules"
-                                             "${pkgs.gnome3.glib_networking.out}/lib/gio/modules"
-                                             "${pkgs.gnome3.gvfs}/lib/gio/modules" ]; */
-
   services.dbus.packages = [
     # never printed but this might be useful
     (lib.mkIf config.services.printing.enable pkgs.system-config-printer)
