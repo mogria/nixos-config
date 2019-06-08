@@ -12,11 +12,19 @@
       extraGroups = [ "wheel" "mogria" "networkmanager"
         "lp" "dialout" # printing, and usb device access
         "scanner" # scanning
+        "docker"
+        "video"
       ];
       shell = pkgs.zsh;
     };
 
     # loraine was uid 1001
+
+    marci = {
+      isNormalUser = true;
+      uid = 1006;
+      extraGroups = [ "guest" "wheel" ];
+    };
 
     guest = {
       isNormalUser = true;
@@ -28,6 +36,7 @@
   users.groups = [
     { gid = 1000; name = "mogria"; }
     { gid = 1005; name = "guest"; }
+    { gid = 1006; name = "marci"; }
   ];
 
 }
