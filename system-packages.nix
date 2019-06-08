@@ -21,6 +21,10 @@
     binutils
     file
     psmisc
+    ripgrep
+    netcat
+    curl
+    wget
 
     unzip
     zip
@@ -31,12 +35,10 @@
     strace
     ltrace
 
+    # admin utils
     pciutils
     iputils
-    inetutils
-    netcat
-    curl
-    wget
+    powertop
 
     # development stuff
     direnv
