@@ -30,7 +30,7 @@
       # ./34c3-cert.nix
       # ./wireguard.nix
 
-      ./searx.nix
+      # ./searx.nix
       ./sudo.nix
     ];
 
