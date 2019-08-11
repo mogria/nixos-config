@@ -58,4 +58,5 @@
   environment.systemPackages = [
     pkgs.tamzen-console-font
   ];
+  environment.pathsToLink = [ "/share/consolefonts" ];
 }
