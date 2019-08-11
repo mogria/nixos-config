@@ -1,0 +1,13 @@
+diff --git a/nvidiabl-gpu.h b/nvidiabl-gpu.h
+index e97ae6e..2bd6376 100644
+--- a/nvidiabl-gpu.h
++++ b/nvidiabl-gpu.h
+@@ -19,6 +19,8 @@
+  * Second argument is the algortihm name that comes from nvidiabl-models.c (currently nv4x_driver_data or nv5x_driver_data)
+  */
+ 
++/* Geforce MX150 */
++NVIDIABL_DECLARE_GPU_MODEL(0x1d10, nv4x_driver_data),
+ /* Geforce Go 7800 (195.30) */
+ NVIDIABL_DECLARE_GPU_MODEL(0x0098, nv4x_driver_data),
+ /* Geforce Go 7800 GTX (195.30) */

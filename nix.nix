@@ -9,7 +9,7 @@
   };
 
   nixpkgs.overlays = [
-    # ( import ./overlays/nvidia.nix )
+    ( import ./overlays/nvidia.nix )
     ( import ./overlays/nix-utils )
     ( import ./overlays/sudo.nix )
     ( import ./overlays/console-font-tamzen.nix )
