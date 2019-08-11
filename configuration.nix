@@ -14,7 +14,8 @@
       ./graphical.nix
       ./users.nix
       ./glances-tty.nix
-      ./mysql.nix
+      # ./mysql.nix
+      # ./postgres.nix
       ./apache2.nix
       # ./i2p.nix
       ./bluetooth.nix
@@ -31,8 +32,9 @@
       # ./wireguard.nix
 
       # ./searx.nix
-      ./docker.nix
+      # ./docker.nix
       ./sudo.nix
+      # ./mongo.nix
     ];
 
   # boot.enableContainers = true;
