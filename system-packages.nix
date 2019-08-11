@@ -4,7 +4,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     nix-utils
-    wireshark-gtk
+    wireshark-qt
     vlc
     filezilla
     keepass
