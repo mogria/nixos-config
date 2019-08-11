@@ -19,7 +19,8 @@ in {
   services.xserver.videoDrivers = [ "nvidia" ]; 
   # boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "kvm-intel"];
   # boot.kernelParams = [  "nvidia-drm.modeset=1" ];
-  boot.extraModulePackages = with pkgs.linuxPackages; [ cpupower bbswitch x86_energy_perf_policy nvidia_x11 nvidiabl ];
+  boot.kernelPackages = pkgs.linuxPackages;
+  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ] ++ (with pkgs.linuxPackages; [ cpupower bbswitch x86_energy_perf_policy nvidia_x11 nvidiabl ]);
   # boot.extraModprobeConfig = "options nvidia-drm modeset=1";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -39,6 +40,7 @@ in {
       nvidiaBusId = "PCI:1:0:0";
     };
   };
+  programs.light.enable = true;
   # hardware.bumblebee = {
     # enable = true;
     # driver = "nvidia";
