@@ -25,6 +25,12 @@
       "blocklist-updates-enabled" = true;
       "blocklist-url" = "http://john.bitsurge.net/public/biglist.p2p.gz";
       /* taken from here: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/ */
+
+      /* download speed settings */
+      "speed-limit-down" = 1200;
+      "speed-limit-down-enabled" = true;
+      "speed-limit-up" = 120;
+      "speed-limit-up-enabled" = true;
     };
   };
 
