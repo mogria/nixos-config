@@ -12,10 +12,13 @@
       "incomplete-dir-enabled" = true;
 
       "rpc-enabled" = true;
+      "rpc-bind-address" = "0.0.0.0";
       "rpc-whitelist" = "127.0.0.1,192.168.*.*";
       "rpc-host-whitelist" = "void,192.168.*.*";
       "rpc-host-whitelist-enabled" = true;
       "lpd-enabled" = true;
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ 9091 ];
 }
