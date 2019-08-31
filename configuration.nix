@@ -34,7 +34,7 @@
       # ./wireguard.nix
 
       # ./searx.nix
-      # ./docker.nix
+      # ./services/docker.nix
       ./sudo.nix
       # ./mongo.nix
     ];
