@@ -19,6 +19,11 @@
         hostName = "raspberrypi.mshome.net";
         ipAddress = "10.1.1.20";
       }
+      {
+        ethernetAddress = "e0:3f:49:7f:b0:ab";
+        hostName = "void";
+        ipAddress = "10.1.1.23";
+      }
     ];
   };
 

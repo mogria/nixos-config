@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./../../graphical/kde-desktop.nix
       ./../../services/samba.nix
+      ./../../services/transmission.nix
     ];
 
   # Use the GRUB 2 boot loader.
