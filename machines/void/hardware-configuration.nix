@@ -20,6 +20,16 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home" =
+    { device = "datadump/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/srv/storage" =
+    { device = "datadump/shared";
+      fsType = "zfs";
+    };
+
   swapDevices = [ ];
 
   services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; 
