@@ -19,6 +19,7 @@
       ./apache2.nix
       # ./i2p.nix
       ./laptop-power.nix
+      ./services/printing.nix
       # ./services/bluetooth.nix
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
@@ -71,12 +72,6 @@
 
   # Enable automatic updatedb
   services.locate.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.browsing = false;
-  services.printing.drivers = [ pkgs.gutenprint pkgs.gutenprintBin ];
-  hardware.sane.enable = true;
 
   # Enable classic unix at service
   services.atd.enable = true;
