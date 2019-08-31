@@ -17,9 +17,9 @@
       # ./services/mysql.nix
       # ./postgres.nix
       # ./i2p.nix
-      ./laptop-power.nix
       ./services/printing.nix
       # ./services/bluetooth.nix
+      # ./laptop/laptop-power.nix
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
       # ./ilias-mount.nix
