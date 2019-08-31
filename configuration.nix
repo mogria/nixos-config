@@ -15,7 +15,7 @@
       ./users/users.nix
       ./apps/glances-tty.nix
       # ./services/mysql.nix
-      # ./postgres.nix
+      # ./services/postgres.nix
       ./services/printing.nix
       ./services/venus.nix
       # ./services/ssh.nix
