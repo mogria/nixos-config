@@ -11,6 +11,7 @@
       ./../../graphical/kde-desktop.nix
       ./../../services/samba.nix
       ./../../services/transmission.nix
+      ./../../services/venus.nix
     ];
 
   # Use the GRUB 2 boot loader.
