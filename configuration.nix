@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./machines/void/configuration.nix
       ./nixpkgs-config.nix
       ./nix.nix
       ./system-packages.nix
@@ -33,32 +33,13 @@
       # ./34c3-cert.nix
       # ./wireguard.nix
 
-      # ./searx.nix
+      # ./services/searx.nix
       # ./services/docker.nix
       ./sudo.nix
       # ./mongo.nix
     ];
 
   # boot.enableContainers = true;
-
-  networking.hostName = "voidbook"; # Define your hostname.
-  # networking.extraHosts = "127.0.0.1 esther-loeffel";
-
-  networking.firewall.allowedTCPPorts = [ ];
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
- 
-  # Select internationalisation properties.
-  i18n = {
-    # consoleFont = "Lat2-Terminus16"; # set in fonts.nix
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Zurich";
-
-  # List services that you want to enable:
 
   # Enable automatic updatedb
   services.locate.enable = true;
