@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./apps/vim.nix
+  ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -50,6 +54,5 @@
     zsh
 
     manpages
-    (import ./vim.nix)
   ];
 }
