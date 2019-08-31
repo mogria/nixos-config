@@ -11,9 +11,9 @@
       ./nixpkgs-config.nix
       ./nix.nix
       ./system-packages.nix
-      ./glances-tty.nix
       # ./graphical/xfce-desktop.nix
       ./users/users.nix
+      ./apps/glances-tty.nix
       # ./services/mysql.nix
       # ./postgres.nix
       ./apache2.nix
