@@ -18,6 +18,7 @@
       # ./postgres.nix
       ./services/printing.nix
       ./services/venus.nix
+      # ./services/ssh.nix
       # ./services/i2p.nix
       # ./services/bluetooth.nix
       # ./laptop/laptop-power.nix
@@ -58,17 +59,6 @@
   time.timeZone = "Europe/Zurich";
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-    /* listenAddresses = [ {
-      addr = "192.168.43.124";
-      port = 50022;
-    }]; */
-  };
 
   # Enable automatic updatedb
   services.locate.enable = true;
