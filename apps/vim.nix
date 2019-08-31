@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+{ config, pkgs, lib, ... }:
 
 let
   vimrc = ''
@@ -30,21 +30,21 @@ let
       source $HOME/.vimrc
     endif
   '';
-  vimpkg = vim_configurable.customize {
-    name = "vim";
-    
-    vimrcConfig.customRC = vimrc;
+  vimpkg = pkgs.vim_configurable.customize {
+      name = "vim";
+      
+      vimrcConfig.customRC = vimrc;
 
-    vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
-    vimrcConfig.vam.pluginDictionaries = [
-      { names = [
-          "vundle"
-          "vim-nix"
-        ];
-      }
-    ];
-  in {
-    environment.systemPackages = [ vimpkg ];
-    programs.vim.defaultEditor = true;
-  };
+      vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
+      vimrcConfig.vam.pluginDictionaries = [
+        { names = [
+            "vundle"
+            "vim-nix"
+          ];
+        }
+      ];
+    };
+in {
+  environment.systemPackages = [ vimpkg ];
+  programs.vim.defaultEditor = true;
 }
