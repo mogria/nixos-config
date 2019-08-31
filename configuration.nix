@@ -16,8 +16,8 @@
       ./apps/glances-tty.nix
       # ./services/mysql.nix
       # ./postgres.nix
-      # ./i2p.nix
       ./services/printing.nix
+      # ./services/i2p.nix
       # ./services/bluetooth.nix
       # ./laptop/laptop-power.nix
       # ./dhcpd-raspi.nix
