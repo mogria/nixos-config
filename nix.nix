@@ -6,6 +6,7 @@
     buildCores = 16; #might not be required anymore in the future
     maxJobs = 16; #number of cores
     autoOptimiseStore = true;
+    readOnlyStore = true;
   };
 
   nixpkgs.overlays = [
