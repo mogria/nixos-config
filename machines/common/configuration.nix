@@ -56,4 +56,6 @@
 
   # Enable classic unix at service
   services.atd.enable = true;
+
+  boot.supportedFilesystems = [ "vfat" "ntfs" ];
 }
