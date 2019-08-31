@@ -48,7 +48,6 @@
       pkgs.terminus_font
       pkgs.theano
       pkgs.ubuntu_font_family
-      pkgs.vistafonts
       pkgs.corefonts
       pkgs.monoid
     ];
