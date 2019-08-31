@@ -33,7 +33,7 @@
       # ./34c3-cert.nix
       # ./wireguard.nix
 
-      # ./services/searx.nix
+      # ./services/searx/default.nix
       # ./services/docker.nix
       ./sudo.nix
       # ./mongo.nix
