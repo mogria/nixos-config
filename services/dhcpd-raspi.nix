@@ -8,7 +8,7 @@
       option broadcast-address 10.255.255.255;
       option routers 10.1.1.35;
       option domain-name-servers 8.8.8.8, 8.8.4.4;
-      option domain-name "mshome.net";
+      option domain-name "nonet.test";
       subnet 10.1.1.0 netmask 255.255.255.0 {
         range 10.1.1.2 10.1.1.19;
       }

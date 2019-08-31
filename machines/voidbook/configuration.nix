@@ -15,7 +15,7 @@
       # ./../../services/i2p.nix
       ./../../services/bluetooth.nix
       ./../../laptop/laptop-power.nix
-      # ./../../dhcpd-raspi.nix
+      # ./../../services/dhcpd-raspi.nix
       # ./../../ilias-mount.nix
       # ./../../guezzlpage
       # ./../../listenin.nix
