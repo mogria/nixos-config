@@ -32,7 +32,6 @@ in {
       isNormalUser = true;
       uid = 1007;
       extraGroups = [
-        "wheel"
       ] ++ networkGroups ++ printerGroups;
     };
 
