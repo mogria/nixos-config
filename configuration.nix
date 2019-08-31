@@ -24,8 +24,8 @@
       # ./zram-swap.nix
       # ./ilias-mount.nix
       ./fonts.nix
-      ./tmux.nix
       ./apps/adb.nix
+      ./apps/tmux.nix
       # ./guezzlpage
       # ./listenin.nix
       # ./34c3-cert.nix
