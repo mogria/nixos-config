@@ -7,8 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./../../nixpkgs-config.nix
-      ./../../nix.nix
+      ./../../nix/config.nix
       ./../../system-packages.nix
       # ./../../graphical/xfce-desktop.nix
       ./../../users/users.nix

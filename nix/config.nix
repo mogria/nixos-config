@@ -9,10 +9,16 @@
     readOnlyStore = true;
   };
 
-  nixpkgs.overlays = [
-    ( import ./overlays/nvidia.nix )
-    ( import ./overlays/nix-utils )
-    ( import ./overlays/sudo.nix )
-    ( import ./overlays/console-font-tamzen.nix )
-  ];
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      ( import ./overlays/nvidia.nix )
+      ( import ./overlays/nix-utils )
+      ( import ./overlays/sudo.nix )
+      ( import ./overlays/console-font-tamzen.nix )
+    ];
+  };
 }
