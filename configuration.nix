@@ -16,7 +16,6 @@
       ./apps/glances-tty.nix
       # ./services/mysql.nix
       # ./postgres.nix
-      ./apache2.nix
       # ./i2p.nix
       ./laptop-power.nix
       ./services/printing.nix
