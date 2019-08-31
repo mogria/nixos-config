@@ -14,6 +14,7 @@ in {
       extraGroups = [ "wheel" "mogria"
         "docker"
         "video"
+        "transmission"
       ] ++ networkGroups ++ printerGroups;
       shell = pkgs.zsh;
     };
@@ -25,6 +26,7 @@ in {
       uid = 1006;
       extraGroups = [
         "wheel"
+        "transmission"
       ] ++ networkGroups ++ printerGroups;
     };
 
@@ -32,6 +34,7 @@ in {
       isNormalUser = true;
       uid = 1007;
       extraGroups = [
+        "transmission"
       ] ++ networkGroups ++ printerGroups;
     };
 
