@@ -17,6 +17,7 @@
       # ./services/mysql.nix
       # ./postgres.nix
       ./services/printing.nix
+      ./services/venus.nix
       # ./services/i2p.nix
       # ./services/bluetooth.nix
       # ./laptop/laptop-power.nix
