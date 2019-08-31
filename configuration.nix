@@ -23,7 +23,7 @@
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
       # ./ilias-mount.nix
-      ./fonts.nix
+      ./graphical/fonts.nix
       ./apps/adb.nix
       ./apps/tmux.nix
       # ./guezzlpage
