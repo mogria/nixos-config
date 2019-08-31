@@ -18,8 +18,8 @@
       # ./postgres.nix
       ./apache2.nix
       # ./i2p.nix
-      ./bluetooth.nix
       ./laptop-power.nix
+      # ./services/bluetooth.nix
       # ./dhcpd-raspi.nix
       # ./zram-swap.nix
       # ./ilias-mount.nix
