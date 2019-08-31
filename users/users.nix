@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
-{
-
+let 
+  networkGroups = [ "networkmanager" ];
+  printerGroups = [ "lp" "dialout" ]; # printing, and usb device access
+in {
   users.enforceIdUniqueness = true;
 
   # Define a user account. Don't forget to set a password with passwd.
@@ -9,12 +11,10 @@
     mogria = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "wheel" "mogria" "networkmanager"
-        "lp" "dialout" # printing, and usb device access
-        "scanner" # scanning
+      extraGroups = [ "wheel" "mogria"
         "docker"
         "video"
-      ];
+      ] ++ networkGroups ++ printerGroups;
       shell = pkgs.zsh;
     };
 
@@ -23,7 +23,17 @@
     marci = {
       isNormalUser = true;
       uid = 1006;
-      extraGroups = [ "guest" "wheel" ];
+      extraGroups = [
+        "wheel"
+      ] ++ networkGroups ++ printerGroups;
+    };
+
+    zahir = {
+      isNormalUser = true;
+      uid = 1007;
+      extraGroups = [
+        "wheel"
+      ] ++ networkGroups ++ printerGroups;
     };
 
     guest = {

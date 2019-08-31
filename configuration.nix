@@ -12,9 +12,9 @@
       ./nix.nix
       ./system-packages.nix
       ./graphical.nix
-      ./users.nix
       ./glances-tty.nix
       # ./mysql.nix
+      ./users/users.nix
       # ./postgres.nix
       ./apache2.nix
       # ./i2p.nix
