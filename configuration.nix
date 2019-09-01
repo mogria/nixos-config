@@ -2,34 +2,33 @@
 
 {
   imports = [
-    ./machines/voidbook/configuration.nix
+    ./machines/void/configuration.nix
 
-    ./../../nix/config.nix
-    ./../../system-packages.nix
+    ./nix/config.nix
+    ./system-packages.nix
     # ./../../graphical/xfce-desktop.nix
-    ./../../users/users.nix
-    ./../../apps/glances-tty.nix
-    ./../../services/printing.nix
-    ./../../services/ssh.nix
-    # ./../../services/i2p.nix
-    # ./../../services/bluetooth.nix
-    # ./../../laptop/laptop-power.nix
-    # ./../../dhcpd-raspi.nix
-    # ./../../zram-swap.nix
-    # ./../../ilias-mount.nix
-    ./../../graphical/fonts.nix
-    ./../../apps/adb.nix
-    ./../../apps/tmux.nix
-    # ./../../guezzlpage
-    # ./../../listenin.nix
-    # ./../../34c3-cert.nix
-    # ./../../wireguard.nix
+    ./users/users.nix
+    ./apps/glances-tty.nix
+    ./services/printing.nix
+    ./services/ssh.nix
+    # ./services/i2p.nix
+    # ./services/bluetooth.nix
+    # ./laptop/laptop-power.nix
+    # ./dhcpd-raspi.nix
+    # ./ilias-mount.nix
+    ./graphical/fonts.nix
+    ./apps/adb.nix
+    ./apps/tmux.nix
+    # ./guezzlpage
+    # ./listenin.nix
+    # ./34c3-cert.nix
+    # ./wireguard.nix
 
-    # ./../../services/searx/default.nix
-    ./../../services/docker.nix
-    ./../../sudo.nix
-    ./../../zram-swap.nix
-    # ./../../mongo.nix
+    # ./services/searx/default.nix
+    ./services/docker.nix
+    ./sudo.nix
+    ./zram-swap.nix
+    # ./mongo.nix
   ];
 
 
