@@ -30,7 +30,7 @@ in {
         homepageUrl = "http://antirez.com/";
         name = "<antirez>";
       } {
-        feedUrl = "http://xkcd.com/atom.xml";
+        feedUrl = "https://xkcd.com/atom.xml";
         homepageUrl = "http://xkcd.com/";
         name = "XKCD";
       } {
