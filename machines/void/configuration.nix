@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../framebuffer.nix
       ./../../graphical/kde-desktop.nix
       ./../../services/samba.nix
       ./../../services/transmission.nix
