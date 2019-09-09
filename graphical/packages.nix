@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   # This file installs my faviourite graphical programs.
   # Most of them are gtk based, but there are also some Qt ones 
@@ -15,8 +15,8 @@
     thunderbird
     inkscape
     gimp
-    transmission_gtk
     libreoffice
     evince
+    (lib.mkIf (!config.services.transmission.enable) transmission_gtk)
   ];
 }
