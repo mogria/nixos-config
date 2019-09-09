@@ -8,10 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../graphical/framebuffer.nix
+      ./../../graphical/plymouth.nix
       ./../../graphical/kde-desktop.nix
       ./../../services/samba.nix
       ./../../services/transmission.nix
       ./../../services/venus.nix
+      ./../../services/airsonic.nix
     ];
 
   # Use the GRUB 2 boot loader.

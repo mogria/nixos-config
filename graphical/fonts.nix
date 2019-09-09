@@ -53,9 +53,8 @@
     ];
   };
 
-  i18n.consoleFont = "TamzenForPowerline8x16";
-  environment.systemPackages = [
-    pkgs.tamzen-console-font
-  ];
-  environment.pathsToLink = [ "/share/consolefonts" ];
+  i18n = {
+    consoleFont = "TamzenForPowerline8x16";
+    consolePackages = [ pkgs.tamzen-console-font ];
+  };
 }
