@@ -14,6 +14,7 @@
       ./../../services/samba.nix
       ./../../services/transmission.nix
       ./../../services/venus.nix
+      ./../../services/airsonic.nix
     ];
 
   # Use the GRUB 2 boot loader.
