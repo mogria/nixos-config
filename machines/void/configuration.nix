@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../graphical/framebuffer.nix
-      ./../../graphical/plymouth.nix
       ./../../graphical/kde-desktop.nix
       ./../../services/samba.nix
       ./../../services/transmission.nix
@@ -43,10 +41,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Enable sound.
-  # sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;

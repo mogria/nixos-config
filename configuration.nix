@@ -16,7 +16,6 @@
     # ./laptop/laptop-power.nix
     # ./dhcpd-raspi.nix
     # ./ilias-mount.nix
-    ./graphical/fonts.nix
     ./apps/adb.nix
     ./apps/tmux.nix
     # ./guezzlpage
@@ -31,10 +30,7 @@
     # ./mongo.nix
   ];
 
-
   programs.command-not-found.enable = true;
-
-  networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
