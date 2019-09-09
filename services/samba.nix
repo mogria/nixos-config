@@ -3,11 +3,11 @@
 {
   services.samba = {
     enable = true;
-    package = pkgs.sambaFull;
+    package = pkgs.samba;
     enableNmbd = true;
     enableWinbindd  = true;
     securityType = "user";
-    syncPasswordsByPam = true; # Enabling this will add a line directly after pam_unix.so.
+    # syncPasswordsByPam = true; # Enabling this will add a line directly after pam_unix.so.
                                # Whenever a password is changed the samba password will be updated as well.
                                # However, you still have to add the samba password once, using smbpasswd -a user
 
@@ -29,15 +29,28 @@
         path = "/srv/storage";
         browseable = "yes";
         "read only" = "no";
+        "writeable" = "yes";
+        "write list" = "mogria marci zahir shareuser";
         "guest ok" = "no";
 		"create mask" = "0664";
 		"directory mask" = "0775";
-		/* "force user" = "guest"; */
+		"force user" = "shareuser";
 		"force group" = "users";
         comment = "DeDateguezzl";
       };
     };
   };
+
+  users.extraUsers = {
+    shareuser = {
+      uid = 998;
+      extraGroups = [ "users" "transmission" "venus" ];
+    };
+  };
+
+  users.groups = [
+    { gid = 998; name = "shareuser"; }
+  ];
 
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [ 139 445 ];
