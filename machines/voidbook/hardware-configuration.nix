@@ -92,12 +92,5 @@ in {
     [ { device = "/dev/mapper/hdddata-swap"; }
     ];
 
-
-  services.xserver.libinput = {
-    enable = true;
-    disableWhileTyping = true;
-  };
-
   nix.maxJobs = lib.mkDefault 8;
-
 }

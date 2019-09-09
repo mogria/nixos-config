@@ -15,6 +15,7 @@
       # ./../../services/i2p.nix
       ./../../services/bluetooth.nix
       ./../../laptop/laptop-power.nix
+      ./../../laptop/touchpad.nix
       # ./../../services/dhcpd-raspi.nix
       # ./../../ilias-mount.nix
       # ./../../guezzlpage
