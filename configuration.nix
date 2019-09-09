@@ -5,7 +5,7 @@
     ./machines/void/configuration.nix
 
     ./nix/config.nix
-    ./system-packages.nix
+    ./headless/packages.nix
     # ./../../graphical/xfce-desktop.nix
     ./users/users.nix
     ./apps/glances-tty.nix

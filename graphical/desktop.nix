@@ -5,6 +5,7 @@
       ./framebuffer.nix
       ./plymouth.nix
       ./fonts.nix
+      ./packages.nix
   ];
 
   # Enable the X11 windowing system.
