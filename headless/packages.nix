@@ -35,5 +35,7 @@
     jq
     ripgrep
     fd
+    exa
+    w3m
   ];
 }
