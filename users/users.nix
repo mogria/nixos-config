@@ -17,7 +17,10 @@ in {
         "transmission"
       ] ++ networkGroups ++ printerGroups;
       shell = pkgs.zsh;
-      openssh.authorizedKeys.keyFiles = [ ./keys/mogria_voidbook_ecdsa.pub ];
+      openssh.authorizedKeys.keyFiles = [
+        ./keys/mogria_voidbook_ecdsa.pub
+        ./keys/mogria_void_ecdsa.pub
+      ];
     };
 
     # loraine was uid 1001
