@@ -4,23 +4,20 @@ let
   networkGroups = [ "networkmanager" ];
   printerGroups = [ "lp" "dialout" ]; # printing, and usb device access
 in {
-  users.enforceIdUniqueness = true;
+
+  imports = [
+    ./minimal.nix
+  ];
 
   # Define a user account. Don't forget to set a password with passwd.
   users.extraUsers = {
+    # most of user 'mogria' is defined in ./minimal.nix
     mogria = {
-      isNormalUser = true;
-      uid = 1000;
-      extraGroups = [ "wheel" "mogria"
+      extraGroups = [
         "docker"
         "video"
         "transmission"
       ] ++ networkGroups ++ printerGroups;
-      shell = pkgs.zsh;
-      openssh.authorizedKeys.keyFiles = [
-        ./keys/mogria_voidbook_ecdsa.pub
-        ./keys/mogria_void_ecdsa.pub
-      ];
     };
 
     # loraine was uid 1001
@@ -50,7 +47,6 @@ in {
   };
 
   users.groups = [
-    { gid = 1000; name = "mogria"; }
     { gid = 1005; name = "guest"; }
     { gid = 1006; name = "marci"; }
   ];
