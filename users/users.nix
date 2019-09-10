@@ -3,6 +3,8 @@
 let 
   networkGroups = [ "networkmanager" ];
   printerGroups = [ "lp" "dialout" ]; # printing, and usb device access
+  phoneGroups = [ "adbusers" ];
+  desktopGroups = networkGroups ++ printerGroups ++ phoneGroups;
 in {
 
   imports = [
@@ -17,7 +19,7 @@ in {
         "docker"
         "video"
         "transmission"
-      ] ++ networkGroups ++ printerGroups;
+      ] ++ desktopGroups;
     };
 
     # loraine was uid 1001
@@ -28,7 +30,7 @@ in {
       extraGroups = [
         "wheel"
         "transmission"
-      ] ++ networkGroups ++ printerGroups;
+      ] ++ desktopGroups;
     };
 
     zahir = {
@@ -36,7 +38,7 @@ in {
       uid = 1007;
       extraGroups = [
         "transmission"
-      ] ++ networkGroups ++ printerGroups;
+      ] ++ desktopGroups;
     };
 
     guest = {
