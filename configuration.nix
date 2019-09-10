@@ -20,7 +20,6 @@
     # ./wireguard.nix
 
     # ./services/searx/default.nix
-    ./services/docker.nix
     ./sudo.nix
     ./zram-swap.nix
     # ./mongo.nix
