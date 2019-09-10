@@ -6,7 +6,7 @@ let
       
       vimrcConfig.customRC = builtins.readFile ./vimrc;
 
-      vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
+      vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // (pkgs.callPackage ./additional_plugins.nix {});
       vimrcConfig.vam.pluginDictionaries = [
         { names = [
             "vundle"
@@ -18,6 +18,7 @@ let
             "vim-rhubarb"
             "vim-eunuch"
             "vim-closetag"
+            "endwise"
           ];
         }
       ];

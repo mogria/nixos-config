@@ -1,0 +1,4 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -p vimUtils.vim_with_vim2nix -i bash
+
+vim -c 'source generate.vim'
