@@ -4,6 +4,7 @@
     ../../graphical/framebuffer.nix
     ../../services/wifi-hotspot.nix
     ../../services/dhcpd-raspi.nix
+    ../../services/wol-forward.nix
   ];
 
   networking.hostName = "noroute";
