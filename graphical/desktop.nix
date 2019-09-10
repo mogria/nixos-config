@@ -7,6 +7,7 @@
       ./fonts.nix
       ./packages.nix
       ../apps/glances-tty.nix
+      ../services/printing.nix
   ];
 
   # Enable the X11 windowing system.
