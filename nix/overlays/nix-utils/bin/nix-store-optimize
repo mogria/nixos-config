@@ -8,9 +8,9 @@ linebuf() {
 cuthash() {
   # cut by one so the size count for pv is number of store paths,
   # which is nice to display
-  linebuf cut -d/ -f4 | linebuf cut -b1
+  linebuf cut -d/ -f4 | linebuf cut -b4
 }
 
 num_store_paths=$(ls -f1 /nix/store | cuthash | wc -l) # f doesn't sort, faster count
 
-linebuf nix-store --optimise -vv 2>&1 | linebuf grep '^optimising path' | cuthash | linebuf uniq |  pv -l -s $num_store_paths > /dev/null
+linebuf nix-store --optimise -vv 2>&1 | linebuf grep '^optimising path' | cuthash | linebuf uniq | linebuf pv -l -s $num_store_paths > /dev/null
