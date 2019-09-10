@@ -7,6 +7,7 @@
       ./fonts.nix
       ./packages.nix
       ../apps/glances-tty.nix
+      ../apps/adb.nix
       ../services/printing.nix
   ];
 

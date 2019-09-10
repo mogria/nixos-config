@@ -13,7 +13,6 @@
     # ./laptop/laptop-power.nix
     # ./dhcpd-raspi.nix
     # ./ilias-mount.nix
-    ./apps/adb.nix
     ./apps/tmux.nix
     # ./guezzlpage
     # ./listenin.nix
