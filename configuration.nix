@@ -7,7 +7,6 @@
     ./nix/config.nix
     ./headless/packages.nix
     # ./../../graphical/xfce-desktop.nix
-    ./apps/glances-tty.nix
     ./services/printing.nix
     ./services/ssh.nix
     # ./services/i2p.nix

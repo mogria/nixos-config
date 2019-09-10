@@ -6,6 +6,7 @@
       ./plymouth.nix
       ./fonts.nix
       ./packages.nix
+      ../apps/glances-tty.nix
   ];
 
   # Enable the X11 windowing system.
