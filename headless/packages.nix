@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../apps/vim.nix
+    ../apps/vim/vim.nix
   ];
 
   # List packages installed in system profile. To search by name, run:
