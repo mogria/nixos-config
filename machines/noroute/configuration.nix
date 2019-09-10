@@ -3,10 +3,18 @@
   imports = [
     ../../graphical/framebuffer.nix
     ../../services/wifi-hotspot.nix
+    ../../services/dhcpd-raspi.nix
   ];
 
   networking.hostName = "noroute";
-  networking.wireless.enable = true;
+  networking.wireless = {
+    enable = true;
+    interfaces = [ "wlan0" ];
+    networks = {
+      "CISCO 1457" = { psk = builtins.readFile /.wlan-psk; };
+    };
+    userControlled.enable = true;
+  };
   hardware.enableRedistributableFirmware = true;
 
   # NixOS wants to enable GRUB by default
