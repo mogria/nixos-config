@@ -1,9 +1,27 @@
 { pkgs, ... }:
 
+with pkgs;
 let
   buildVimPluginFrom2Nix = pkgs.vimUtils.buildVimPluginFrom2Nix;
-  fetchgit = pkgs.fetchgit;
 in {
+
+  LargeFile = buildVimPluginFrom2Nix { # created by nix#NixDerivation
+    name = "LargeFile";
+    src = fetchurl {
+      url = "http://www.vim.org/scripts/download_script.php?src_id=21106";
+      name = "LargeFile.vba.gz";
+      sha256 = "1pr27nx53140vixyb3r1x2fpzgn5m64zrx7zgk4mfkqzjq2ajaas";
+    };
+    buildInputs = [ gzip ];
+    dependencies = [];
+    meta = {
+       homepage = "http://www.vim.org/scripts/script.php?script_id=1506";
+    };
+
+    unpackPhase = "gunzip $src";
+
+  };
+
   endwise = buildVimPluginFrom2Nix { # created by nix#NixDerivation
     name = "endwise-2018-12-26";
     src = fetchgit {

@@ -19,6 +19,7 @@ let
             "vim-eunuch"
             "vim-closetag"
             "endwise"
+            # "LargeFile"
           ];
         }
       ];
