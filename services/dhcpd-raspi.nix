@@ -1,9 +1,25 @@
 { config, pkgs, lib, ... }:
+
 let
   externalInterface = "wlan0"; # wlp3s0
   internalInterfaces = [ "eth0" "wlan1" ]; # enp4s0f1
   netNo = "23";
 in {
+  networking.hosts = {
+    "192.168.${netNo}.1" = [ "noroute" "noroute.nonet.test" ];
+    "192.168.${netNo}.2" = [ "void" "void.nonet.test" ];
+  };
+
+  services.dnsmasq = {
+    enable = true;
+    alwaysKeepRunning = true;
+    servers = [ "1.1.1.1" "8.8.4.4" ];
+    extraConfig = ''
+      ${builtins.concatStringsSep "\n" (map (interface: "interface=${interface}") internalInterfaces)}
+
+      domain=nonet.test
+    '';
+  };
   services.dhcpd4 = {
     enable = true;
     interfaces = internalInterfaces;
@@ -11,7 +27,7 @@ in {
       option subnet-mask 255.255.255.0;
       option broadcast-address 192.168.${netNo}.255;
       option routers 192.168.${netNo}.1;
-      option domain-name-servers 8.8.8.8, 8.8.4.4;
+      option domain-name-servers 192.168.${netNo}.1, 1.1.1.1;
       option domain-name "nonet.test";
       subnet 192.168.${netNo}.0 netmask 255.255.255.0 {
         range 192.168.${netNo}.20 192.168.${netNo}.99;
