@@ -49,8 +49,6 @@
     };
   };
 
-  # Preserve space by sacrificing documentation and history
-  services.nixosManual.enable = false;
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 30d";
   boot.cleanTmpDir = true;
