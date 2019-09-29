@@ -3,7 +3,7 @@
 let
   port = 23000;
   wakeUpMacAddress = "e0:3f:49:7f:b0:ab";
-  broadcastAddress = "192.168.23.255";
+  broadcastAddress = "192.168.1.255";
   listenAddress = "0.0.0.0"; # TODO: Change this to "192.168.23.0" once upstream is ready
   file = pkgs.writeText "index.html" (builtins.readFile ./wol-forward.html);
  
