@@ -16,10 +16,7 @@
       shell = pkgs.zsh;
   };
 
-  users.extraUsers.nixops = {
-    isNormalUser = true;
-    uid = 2000;
-    extraGroups = [ "nixops" ];
+  users.extraUsers.root= {
     openssh.authorizedKeys.keyFiles = [
       ./keys/nixops.pub
     ];
@@ -27,6 +24,5 @@
 
   users.groups = [
     { gid = 1000; name = "mogria"; }
-    { gid = 2000; name = "nixops"; }
   ];
 }
