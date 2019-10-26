@@ -1,13 +1,15 @@
 { config, pkgs, lib, ... }:
 
 let
-  externalInterface = "wlan0"; # wlp3s0
-  internalInterfaces = [ "eth0" "wlan1" ]; # enp4s0f1
+  externalInterface = "eth0"; # wlp3s0
+  internalInterfaces = [ "wlan0" ]; # enp4s0f1
+  # note: setting up the same net for multiple internal
+  # interfaces doesn't work (yet),
+  # only the first one gets initialized
   netNo = "23";
 in {
   networking.hosts = {
     "192.168.${netNo}.1" = [ "noroute" "noroute.nonet.test" ];
-    "192.168.${netNo}.2" = [ "void" "void.nonet.test" ];
   };
 
   services.dnsmasq = {

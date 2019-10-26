@@ -16,6 +16,12 @@
       shell = pkgs.zsh;
   };
 
+  users.extraUsers.root= {
+    openssh.authorizedKeys.keyFiles = [
+      ./keys/nixops.pub
+    ];
+  };
+
   users.groups = [
     { gid = 1000; name = "mogria"; }
   ];

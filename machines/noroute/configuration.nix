@@ -10,12 +10,12 @@
   ];
 
   networking.hostName = "noroute";
-  networking.wireless = {
+  /* networking.wireless = {
     enable = true;
     interfaces = [ "wlan0" ];
     networks = {
       "CISCO 1457" = { psk = builtins.readFile /.wlan-psk; };
     };
     userControlled.enable = true;
-  };
+  }; */
 }
