@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  groups = import /groups.nix;
+  groups = import ./groups.nix;
 in {
 
   imports = [
@@ -17,7 +17,7 @@ in {
     marci = {
       isNormalUser = true;
       uid = 1006;
-      extraGroups = [ "marci" ] ++ desktopGroups;
+      extraGroups = [ "marci" ] ++ groups.desktopGroups;
       openssh.authorizedKeys.keyFiles = [
         ./keys/marci_acab_ecdsa.pub
       ];
@@ -26,13 +26,13 @@ in {
     zahir = {
       isNormalUser = true;
       uid = 1007;
-      extraGroups = [ "zahir" ] ++ desktopGroups;
+      extraGroups = [ "zahir" ] ++ groups.desktopGroups;
     };
 
     guest = {
       isNormalUser = true;
       uid = 1005;
-      extraGroups = [ "guest" ];
+      extraGroups = [ "guest" ] ++ groups.printerGroups;
     };
   };
 
