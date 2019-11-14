@@ -10,8 +10,9 @@
 
   boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelModules = [ "kvm-amd" "rtl8812au" ];
+  boot.extraModulePackages = [ pkgs.linuxPackages.rtl8812au ];
   boot.supportedFilesystems = [ "zfs" ];
 
 
@@ -33,8 +34,9 @@
   swapDevices = [ ];
 
   services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; 
+  # hardware.bumblebee.enable = true;
   hardware.nvidia = {
-    modesetting.enable = true;
+    modesetting.enable = false;
     # optimus_prime = {
       # enable = true;
       # intelBusId = "PCI:0:2:0";
