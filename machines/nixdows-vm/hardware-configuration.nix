@@ -36,5 +36,5 @@
   nix.maxJobs = lib.mkDefault 1;
   virtualisation.virtualbox.guest.enable = true;
 
-  security.rngd.enable = false; // otherwise vm will not boot
+  security.rngd.enable = false; # otherwise vm will not boot
 }
