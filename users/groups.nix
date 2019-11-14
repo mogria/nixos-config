@@ -1,4 +1,4 @@
-{
+rec {
   networkGroups = [ "networkmanager" ];
   printerGroups = [ "lp" "dialout" ]; # printing, and usb device access
   phoneGroups = [ "adbusers" ];
