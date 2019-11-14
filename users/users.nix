@@ -31,6 +31,9 @@ in {
         "wheel"
         "transmission"
       ] ++ desktopGroups;
+      openssh.authorizedKeys.keyFiles = [
+        ./keys/marci_acab_ecdsa.pub
+      ];
     };
 
     zahir = {
