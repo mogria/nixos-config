@@ -12,9 +12,18 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelModules = [ "kvm-amd" "rtl8812au" ];
-  boot.extraModulePackages = [ pkgs.linuxPackages.rtl8812au ];
+  # boot.extraModulePackages = [ pkgs.linuxPackages.rtl8812au ];
   boot.supportedFilesystems = [ "zfs" ];
 
+  boot.extraModulePackages =  with pkgs.linuxPackages ; [ nvidia_x11_legacy390 ];
+  hardware.enableRedistributableFirmware = true;
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
+    # driSupport32Bit = true;
+    # extraPackages32 = with pkgs.driversi686Linux; [ glxinfo vaapiIntel libvdpau-va-gl vaapiVdpau ];
+  };
+  services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; 
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c90674fc-44ad-4e30-bb88-617e903dc23f";
@@ -32,17 +41,6 @@
     };
 
   swapDevices = [ ];
-
-  services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; 
-  # hardware.bumblebee.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = false;
-    # optimus_prime = {
-      # enable = true;
-      # intelBusId = "PCI:0:2:0";
-      # nvidiaBusId = "PCI:1:0:0";
-    # };
-  };
 
   nix.maxJobs = lib.mkDefault 8;
 }
