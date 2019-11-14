@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  groups = import ./groups.nix;
+in {
   users.enforceIdUniqueness = true;
 
 
@@ -8,7 +10,7 @@
   users.extraUsers.mogria = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "wheel" "mogria" ];
+      extraGroups = [ "mogria" ] ++ groups.adminGroups ++ groups.desktopGroups;
       openssh.authorizedKeys.keyFiles = [
         ./keys/mogria_voidbook_ecdsa.pub
         ./keys/mogria_void_ecdsa.pub
