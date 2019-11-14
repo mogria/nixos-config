@@ -2,8 +2,6 @@
 
 {
   imports = [
-      ./framebuffer.nix
-      ./plymouth.nix
       ./fonts.nix
       ./packages.nix
       ../apps/glances-tty.nix
