@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./graphical/xfce-desktop.nix
+    ../../graphical/xfce-desktop.nix
     # ../../graphical/framebuffer.nix
     # ../../services/wifi-hotspot.nix
     # ../../services/dhcpd-raspi.nix
