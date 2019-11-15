@@ -19,7 +19,6 @@
       ( import ./overlays/nix-utils )
       ( import ./overlays/sudo.nix )
       ( import ./overlays/packages.nix )
-      ( import ./overlays/rtl8821au.nix )
     ];
   };
 }
