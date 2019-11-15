@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../graphical/framebuffer.nix
+    ../../headless/ntp.nix
     ../../services/wifi-hotspot.nix
     ../../services/dhcpd-raspi.nix
     ../../services/wol-forward.nix
