@@ -2,10 +2,9 @@
 
 {
   imports = [
+    ./nix/config.nix
     ./machines/void/configuration.nix
 
-    ./nix/config.nix
-    ./nix/gc.nix
     ./headless/packages.nix
     # ./../../graphical/xfce-desktop.nix
     ./services/ssh.nix
