@@ -6,11 +6,12 @@ let
 in {
   services.venus = {
     enable = true;
-    name = "Void";
+    name = "Void News";
+    link = "http://news.nonet.test";
     ownerEmail = "m0gr14@gmail.com";
     ownerName = "Mogria";
-    cacheDirectory = "/srv/storage/Feeds/Cache";
-    outputDirectory = "/srv/storage/Feeds";
+    cacheDirectory = "/srv/storage/Feeds";
+    outputDirectory = "/var/www/news.nonet";
     inherit user;
     group = user;
     feeds = [ {
