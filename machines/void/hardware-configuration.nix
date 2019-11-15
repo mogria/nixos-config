@@ -11,11 +11,13 @@
   boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelModules = [ "kvm-amd" "rtl8812au" ];
-  # boot.extraModulePackages = [ pkgs.linuxPackages.rtl8812au ];
+  boot.kernelModules = [ "kvm-amd" "8821au" ];
+  boot.extraModulePackages =  with pkgs.linuxPackages ; [
+    nvidia_x11_legacy390
+    rtl8821au
+  ];
   boot.supportedFilesystems = [ "zfs" ];
 
-  boot.extraModulePackages =  with pkgs.linuxPackages ; [ nvidia_x11_legacy390 ];
   hardware.enableRedistributableFirmware = true;
   hardware.opengl = {
     enable = true;
