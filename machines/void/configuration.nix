@@ -17,6 +17,7 @@
       ./../../services/venus.nix
       ./../../services/airsonic.nix
       ./../../services/newsboat.nix
+      ./../../services/nginx.nix
     ];
 
   # Use the GRUB 2 boot loader.
