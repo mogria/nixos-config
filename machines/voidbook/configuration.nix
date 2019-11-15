@@ -16,8 +16,8 @@
       # ./../../services/venus.nix
       # ./../../services/i2p.nix
       ./../../services/bluetooth.nix
-      ./../../laptop/laptop-power.nix
-      # ./../../laptop/touchpad.nix # touchpad is disabled in BIOS
+      ./../../hardware/laptop/laptop-power.nix
+      # ./../../hardware/laptop/touchpad.nix # touchpad is disabled in BIOS
       # ./../../services/dhcpd-raspi.nix
       # ./../../ilias-mount.nix
       # ./../../guezzlpage

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let 
+let
   /* you can generate these commands using powertop */
   powersaveCommands = ''
     ${pkgs.powertop} --auto-tune
@@ -11,7 +11,6 @@ let
     ${pkgs.hdparm}/bin/hdparm -S 10 -B 255 /dev/disk/by-id/ata-Micron_1100_MTFDDAV256TBN_1711166AC81F
     ${pkgs.hdparm}/bin/hdparm -S 10 -B 255 /dev/disk/by-uuid/c0232ce6-9bef-43ea-b873-a9acec0e382e
   '';
-  
 in {
   services.upower.enable = true;
   services.tlp.enable = true;
