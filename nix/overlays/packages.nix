@@ -2,30 +2,35 @@ self: super:
 
 let
   pkgs = self.pkgs;
-  overlayLinuxPackages = basePackages:
-    basePackages.extend (self: super: {
-      nvidiabl = super.nvidiabl.overrideAttrs (attrs: {
-        # $ git diff nvidiabl-gpu.h | sed 's/overlays\///g' > nvidiabl-gpu.patch
-        patches = (if attrs ? patches then attrs.patches else [] )  ++ [ ./nvidiabl-gpu.patch ];
-      });
+  linuxPackagesOverlay = self: super: {
+    nvidiabl = super.nvidiabl.overrideAttrs (attrs: {
+      # $ git diff nvidiabl-gpu.h | sed 's/overlays\///g' > nvidiabl-gpu.patch
+      patches = (if attrs ? patches then attrs.patches else [] )  ++ [ ./nvidiabl-gpu.patch ];
     });
+
+    rtl8821au = super.rtl8821au.overrideAttrs (attrs: {
+      name = "rtl8821au-overridden";
+      src = pkgs.fetchFromGitHub {
+        owner = "abperiasamy";
+        repo = "rtl8812AU_8821AU_linux";
+        rev = "fa68771376a637c0b5f9cfa53da008570939a259";
+        sha256 = "0vm1zdssd6crfq7v1i0wjlbmr6fax1lg6d09jl2g85d2hyjw942f";
+      };
+
+      prePatch = ''
+        ${attrs.prePatch}
+        substituteInPlace ./Makefile --replace 'CONFIG_RTL8812A = y' 'CONFIG_RTL8812A = n'
+      '';
+
+      meta = {
+        platforms = attrs.meta.platforms ++ [ "aarch64-linux" ];
+      };
+    });
+  };
 in {
   # Inspired by https://stackoverflow.com/questions/29075927/how-to-modify-a-nixos-package-configuration
-  linuxPackages = (overlayLinuxPackages super.linuxPackages).extend (self: super: {
-      rtl8821au = super.rtl8821au.overrideAttrs (attrs: {
-        name = "rtl8821au-overridden";
-        src = pkgs.fetchFromGitHub {
-          owner = "abperiasamy";
-          repo = "rtl8812AU_8821AU_linux";
-          rev = "fa68771376a637c0b5f9cfa53da008570939a259";
-          sha256 = "0vm1zdssd6crfq7v1i0wjlbmr6fax1lg6d09jl2g85d2hyjw942f";
-        };
-        meta = {
-          platforms = [ "aarch64-linux" "x86_64-linux" ];
-        };
-      });
-  });
-  linuxPackages_latest = overlayLinuxPackages super.linuxPackages_latest;
+  linuxPackages = super.linuxPackages.extend linuxPackagesOverlay;
+  linuxPackages_latest = super.linuxPackages_latest.extend linuxPackagesOverlay;
 
   tamzen-console-font =  let version = "1.11.4"; in super.pkgs.fetchFromGitHub {
     name = "tamzen-console-font-${version}";

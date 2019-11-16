@@ -40,4 +40,6 @@
     exa
     w3m
   ];
+
+  programs.command-not-found.enable = true;
 }

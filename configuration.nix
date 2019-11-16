@@ -2,8 +2,9 @@
 
 {
   imports = [
+    # ./machines/void/configuration.nix
+    ./machines/noroute/configuration.nix
     ./nix/config.nix
-    ./machines/void/configuration.nix
 
     ./headless/packages.nix
     ./services/ssh.nix

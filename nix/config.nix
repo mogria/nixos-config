@@ -7,9 +7,12 @@
   ];
   nix = {
     useSandbox = true; #might not be required anymore in the future
-    buildCores = 16; #might not be required anymore in the future
-    maxJobs = 16; #number of cores
+    maxJobs = 4; #number of cores
     autoOptimiseStore = true;
     readOnlyStore = true;
+
+    # trustedBinaryCaches = [
+      # "http://cache.nixos.org"
+    # ];
   };
 }

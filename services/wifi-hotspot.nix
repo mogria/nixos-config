@@ -3,8 +3,8 @@
 {
   services.hostapd = {
     enable = true;
-    channel = 13;
-    interface = "wlan0";
+    channel = 1;
+    interface = "wlan1";
     # group = "wheel"; # e.g. "network"
     # hwMode = "g"; # one of [ "a" "b" "g" ]
     wpa = true;

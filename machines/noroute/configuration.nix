@@ -2,13 +2,16 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../hardware/wifi/dlink-dwa-172.nix
+    ../../nix/distributed-builds.nix
     ../../graphical/framebuffer.nix
     ../../headless/ntp.nix
     ../../services/wifi-hotspot.nix
     ../../services/dhcpd-raspi.nix
     ../../services/wol-forward.nix
-#    ../../services/openldap.nix
+    # ../../services/openldap.nix
     ../../users/minimal.nix
+
   ];
 
   networking.hostName = "noroute";
