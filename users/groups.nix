@@ -1,6 +1,6 @@
 rec {
   networkGroups = [ "networkmanager" ];
-  printerGroups = [ "lp" "dialout" ]; # printing, and usb device access
+  printerGroups = [ "lp" "dialout" "scanner" ]; # printing, and usb device access
   phoneGroups = [ "adbusers" ];
   serviceGroups = [ "transmission" ] ++ printerGroups;
   adminGroups = [ "wheel" "video" "docker" ];
