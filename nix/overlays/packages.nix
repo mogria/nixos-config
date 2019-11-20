@@ -45,5 +45,14 @@ in {
   };
 
   sudo = super.sudo.override { withInsults = true; };
+
+
+  perlPackages = super.perlPackages // {
+     Autodia = super.perlPackages.Autodia.overrideAttrs (attrs: {
+      buildInputs = attrs.buildInputs ++ [ self.perlPackages.GraphViz ];
+    });
+
+  };
+
 }
 
