@@ -14,7 +14,6 @@
       ./../../graphical/plymouth.nix
       ./../../services/samba.nix
       ./../../services/transmission.nix
-      ./../../services/venus.nix
       ./../../services/airsonic.nix
       ./../../services/newsboat.nix
       ./../../services/nginx.nix
