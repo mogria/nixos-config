@@ -31,17 +31,25 @@ let
 
     html-renderer "w3m -dump -T text/html"
 
-    bindkey S save-all
+    # bindkey S save-all
+  '';
+  login_script = pkgs.writeText "newsboat.profile" ''
+    export HOME=${home}
+    export PATH=${home}/.nix-profile/bin:$PATH
+    newsboat
+    exit 0
   '';
   ttyNumber = 11;
+  home = "/var/lib/newsboat";
 in {
   users.users.newsboat = {
+    isNormalUser = true;
     uid = 990;
     description = "NewsBoat RSS Daemon User";
     extraGroups = [ "newsboat" ];
-    packages = [ pkgs.newsboat pkgs.sqlite ];
+    packages = [ pkgs.newsboat pkgs.sqlite pkgs.w3m pkgs.lynx ];
     createHome = true;
-    home = "/var/lib/newsboat";
+    inherit home;
   };
 
   users.groups = [ { gid = 990; name = "newsboat"; } ];
@@ -58,19 +66,21 @@ in {
     preStart = ''
       set -e
       set -x
-      ${pkgs.newsboat}/bin/newsboat -u ${urls} --export-to-opml > /var/lib/newsboat/export.opml
-      ${pkgs.newsboat}/bin/newsboat --import-from-opml=/var/lib/newsboat/export.opm
+      [ ! -d ${home}/.newsboat ] && mkdir ${home}/.newsboat
+      [ -f ${home}/.profile ] && rm -f ${home}/.profile
+      cp ${login_script} ${home}/.profile
+      [ -f ${home}/.newsboat/urls ] && rm -f ${home}/.newsboat/urls
+      cp ${urls} ${home}/.newsboat/urls
+      [ -f ${home}/.newsboat/config ] && rm -f ${home}/.newsboat/config
+      cp ${config} ${home}/.newsboat/config
+      ${pkgs.newsboat}/bin/newsboat -u ${urls} --export-to-opml > ${home}/export.opml
     '';
 
     serviceConfig = {
-      ExecStart = "${pkgs.newsboat}/bin/newsboat -u ${urls} --config-file=${config} --refresh-on-start";
+      ExecStart = "${pkgs.newsboat}/bin/newsboat --config-file=${config} --refresh-on-start";
       User = "newsboat";
       Group = "newsboat";
-      Environment=''
-        XDG_CONFIG_HOME=/var/lib/newsboat
-        XDG_DATA_HOME=/var/lib/newsboat
-      '';
-
+      Environment="HOME=${home}";
       StandardInput = "tty";
       StandardOutput = "tty";
       TTYPath = "/dev/tty${toString ttyNumber}";
