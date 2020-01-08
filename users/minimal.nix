@@ -14,6 +14,7 @@ in {
       openssh.authorizedKeys.keyFiles = [
         ./keys/mogria_voidbook_ecdsa.pub
         ./keys/mogria_void_ecdsa.pub
+        ./keys/mogria_voidphone.pub
       ];
       shell = pkgs.zsh;
   };
