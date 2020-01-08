@@ -6,7 +6,6 @@
     ./machines/void/configuration.nix
 
     ./headless/packages.nix
-    # ./../../graphical/xfce-desktop.nix
     ./services/ssh.nix
     # ./services/i2p.nix
     # ./services/bluetooth.nix
