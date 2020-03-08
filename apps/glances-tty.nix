@@ -13,7 +13,7 @@ in
 {
   environment.systemPackages = [ glancesPackage runScript ];
 
-  boot.extraTTYs = ["tty${toString ttyNumber}"];
+  console.extraTTYs = ["tty${toString ttyNumber}"];
 
   systemd.services."glances-tty" = {
     description = "Glances TTY${toString ttyNumber}";
