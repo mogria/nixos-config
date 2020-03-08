@@ -18,6 +18,7 @@
     wget
 
     # admin utils
+    lsb-release
     pciutils
     iputils
     powertop
