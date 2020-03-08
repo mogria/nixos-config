@@ -49,8 +49,8 @@
     ];
   };
 
-  i18n = {
-    consoleFont = "TamzenForPowerline8x16";
-    consolePackages = [ pkgs.tamzen-console-font ];
+  console = {
+    font = "TamzenForPowerline8x16";
+    packages = [ pkgs.tamzen-console-font ];
   };
 }
