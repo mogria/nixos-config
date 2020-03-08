@@ -32,9 +32,11 @@
 
   # Select internationalisation properties.
   i18n = {
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
+
+  # use us keyboard on tty's
+  console.keyMap = "us";
 
   # Enable automatic updatedb
   services.locate.enable = true;
