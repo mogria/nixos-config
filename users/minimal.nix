@@ -25,7 +25,5 @@ in {
     ];
   };
 
-  users.groups = [
-    { gid = 1000; name = "mogria"; }
-  ];
+  users.groups."mogria" = { gid = 1000; name = "mogria"; members = [ "mogria" ]; };
 }
