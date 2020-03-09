@@ -26,7 +26,6 @@
       # ./../../wireguard.nix
       # ./../../services/searx/default.nix
       # ./../../mongo.nix
-      ./../../services/samba-mount.nix
       # ./../../apps/virtualbox.nix
     ];
 

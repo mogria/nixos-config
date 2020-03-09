@@ -12,7 +12,6 @@
       ./../../users/users.nix
       ./../../graphical/kde-desktop.nix
       ./../../graphical/plymouth.nix
-      ./../../services/samba.nix
       ./../../services/transmission.nix
       ./../../services/airsonic.nix
       ./../../services/newsboat.nix
