@@ -5,23 +5,13 @@
     ./desktop.nix
   ];
 
-  services.xserver.displayManager.slim = {
+  services.xserver.displayManager.lightdm = {
     enable = true;
-    # this is how you would specify your slim theme, but nixos has changed
-    # to lightdm anyway soo....
-    # theme = pkgs.writeTextFile {
-    # name = "slim-theme";
-    #  text = ''
-    #  '';
-    # };
+    autoLogin = {
+      enable = true;
+      user = "mogria";
+    };
   };
-  # services.xserver.displayManager.lightdm = {
-    # enable = true;
-    # autoLogin = {
-      # enable = true;
-      # user = "mogria";
-    # };
-  # };
   services.xserver.desktopManager.xfce4-14 = {
     enable = true;
   };
