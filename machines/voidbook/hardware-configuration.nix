@@ -16,8 +16,9 @@ in {
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   };
   # services.xserver.videoDrivers = [ "nvidia" ]; 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "kvm-intel"];
-  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ] ++ (with pkgs.linuxPackages; [ cpupower bbswitch x86_energy_perf_policy nvidiabl ]);
+  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ] ++ (with config.boot.kernelPackages; [ cpupower bbswitch x86_energy_perf_policy nvidiabl ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.cpu.intel.updateMicrocode = true;
