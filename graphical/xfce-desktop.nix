@@ -14,6 +14,10 @@
   };
   services.xserver.desktopManager.xfce4-14 = {
     enable = true;
+    thunarPlugins = [
+      pkgs.xfce.thunar-archive-plugin
+      pkgs.xfce.thunar-dropbox-plugin
+    ];
   };
 
   # this is required for mounting android phones
@@ -30,10 +34,6 @@
     # pkgs.xfce.xfce4-timer-plugin
     pkgs.xfce.xfce4-clipman-plugin
     pkgs.xfce.xfce4-taskmanager
-
-    # thunar plugins
-    pkgs.xfce.thunar-archive-plugin
-    pkgs.xfce.thunar-dropbox-plugin
 
     # Required to run to load kdeconnect: 
     #   qdbus org.kde.kded /kded loadModule kdeconnect
