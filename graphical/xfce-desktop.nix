@@ -12,7 +12,7 @@
       user = "mogria";
     };
   };
-  services.xserver.desktopManager.xfce4-14 = {
+  services.xserver.desktopManager.xfce = {
     enable = true;
     thunarPlugins = [
       pkgs.xfce.thunar-archive-plugin
