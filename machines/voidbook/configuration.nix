@@ -11,7 +11,7 @@
       ./../../users/minimal.nix
       ./../../graphical/xfce-desktop.nix
       # ./../../services/mysql.nix
-      ./../../services/postgres.nix
+      # ./../../services/postgres.nix
       ./../../services/docker.nix
       # ./../../services/venus.nix
       # ./../../services/i2p.nix
