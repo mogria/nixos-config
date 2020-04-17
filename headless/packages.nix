@@ -26,6 +26,7 @@
     # development environment
     patchutils
     nix-utils
+    nix-index # provides nix-index & nix-locate
     direnv
     git
     # Only install the basic zsh, because of our user configuration
