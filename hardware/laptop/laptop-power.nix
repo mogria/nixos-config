@@ -18,8 +18,12 @@ in {
 
   powerManagement = {
     enable = true;
-    powerUpCommands = powersaveCommands;
-    resumeCommands = powersaveCommands;
+    # cpuFreqGovernor = "ondemand";
+    # scsiLinkPolicy = "min_power";
+    # powertop.enable = true;
+    # powerUpCommands = powersaveCommands;
+    # powerUpCommands = powerDownCommands;
+    # resumeCommands = powersaveCommands;
   };
 
 
