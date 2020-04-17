@@ -1,2 +1,14 @@
 #!/usr/bin/env bash
-readlink -f `which "$1"`
+#
+# find out through what profile environment a executable is provided
+# this will follow all the nix symlinks back to the original package where this file is provided
+
+exe="$(which "$1")"
+path_element="$(dirname "$exe")"
+
+echo "PATH element: $path_element"
+echo "Executable:   $exe"
+while [ -L "$exe" ]; do
+	exe="$(readlink "$exe")"
+	echo "Links to: $exe"
+done
