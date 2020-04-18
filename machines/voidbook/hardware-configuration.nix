@@ -10,41 +10,20 @@ let
 in {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../../hardware/nvidia.nix
     ];
 
   boot.initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   };
-  # services.xserver.videoDrivers = [ "nvidia" ]; 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "kvm-intel"];
-  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ] ++ (with config.boot.kernelPackages; [ cpupower bbswitch x86_energy_perf_policy nvidiabl ]);
+
+  /* driver displaylink requires linux < 5.3, linux_latest is 5.4 and I experienced some breakage anyway (sdcard). */
+  /* boot.kernelPackages = pkgs.linuxPackages_latest; */
+  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ] ++ (with config.boot.kernelPackages; [ cpupower bbswitch x86_energy_perf_policy ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
-    extraPackages32 = with pkgs.driversi686Linux; [ glxinfo vaapiIntel libvdpau-va-gl vaapiVdpau ];
-  };
-  hardware.nvidia = {
-    # modesetting.enable = true;
-    # optimus_prime = {
-      # enable = true;
-      # allowExternalGpu = true;
-      # intelBusId = "PCI:0:2:0";
-      # nvidiaBusId = "PCI:1:0:0";
-    # };
-  };
-  programs.light.enable = true;
-  hardware.bumblebee = {
-    enable = true;
-    driver = "nvidia";
-    connectDisplay = true;
-    # group = "video";
-  };
 
   boot.initrd.luks.mitigateDMAAttacks = true;
   boot.initrd.luks.devices = {
