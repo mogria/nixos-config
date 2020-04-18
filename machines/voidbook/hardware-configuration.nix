@@ -10,6 +10,7 @@ let
 in {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../../hardware/firmware/nonfree.nix
       ../../hardware/razer.nix
       ../../hardware/nvidia.nix
     ];
@@ -24,7 +25,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true;
 
   boot.initrd.luks.mitigateDMAAttacks = true;
   boot.initrd.luks.devices = {
