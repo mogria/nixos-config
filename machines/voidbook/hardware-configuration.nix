@@ -10,6 +10,7 @@ let
 in {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../../hardware/razer.nix
       ../../hardware/nvidia.nix
     ];
 
