@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  glancesPackage = pkgs.glances;
+  glancesPackage = pkgs.python36Packages.glances;
   ttyNumber = 12;
   user = "glances";
   runScript = pkgs.writeScriptBin "glances-tty-wrapper"
