@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  glancesPackage = pkgs.python36Packages.glances;
+  glancesPackage = pkgs.glances;
   ttyNumber = 12;
   user = "glances";
   runScript = pkgs.writeScriptBin "glances-tty-wrapper"
@@ -13,7 +13,7 @@ in
 {
   environment.systemPackages = [ glancesPackage runScript ];
 
-  boot.extraTTYs = ["tty${toString ttyNumber}"];
+  console.extraTTYs = ["tty${toString ttyNumber}"];
 
   systemd.services."glances-tty" = {
     description = "Glances TTY${toString ttyNumber}";

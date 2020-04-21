@@ -11,10 +11,6 @@
         sansSerif = [ "Monoid HalfTight Semi-Condensed" "Roboto Regular" "DejaVu Sans" ];
         serif = [ "Roboto Slab Regular" "DejaVu Serif" ];
       };
-      ultimate = {
-        enable = true;
-        substitutions = "combi";
-      };
     };
     enableDefaultFonts = true;
     enableFontDir = true;
@@ -53,8 +49,8 @@
     ];
   };
 
-  i18n = {
-    consoleFont = "TamzenForPowerline8x16";
-    consolePackages = [ pkgs.tamzen-console-font ];
+  console = {
+    font = "TamzenForPowerline8x16";
+    packages = [ pkgs.tamzen-console-font ];
   };
 }

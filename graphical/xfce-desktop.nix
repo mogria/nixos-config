@@ -5,25 +5,19 @@
     ./desktop.nix
   ];
 
-  services.xserver.displayManager.slim = {
+  services.xserver.displayManager.lightdm = {
     enable = true;
-    # this is how you would specify your slim theme, but nixos has changed
-    # to lightdm anyway soo....
-    # theme = pkgs.writeTextFile {
-    # name = "slim-theme";
-    #  text = ''
-    #  '';
-    # };
+    autoLogin = {
+      enable = true;
+      user = "mogria";
+    };
   };
-  # services.xserver.displayManager.lightdm = {
-    # enable = true;
-    # autoLogin = {
-      # enable = true;
-      # user = "mogria";
-    # };
-  # };
-  services.xserver.desktopManager.xfce4-14 = {
+  services.xserver.desktopManager.xfce = {
     enable = true;
+    thunarPlugins = [
+      pkgs.xfce.thunar-archive-plugin
+      pkgs.xfce.thunar-dropbox-plugin
+    ];
   };
 
   # this is required for mounting android phones
@@ -40,10 +34,6 @@
     # pkgs.xfce.xfce4-timer-plugin
     pkgs.xfce.xfce4-clipman-plugin
     pkgs.xfce.xfce4-taskmanager
-
-    # thunar plugins
-    pkgs.xfce.thunar-archive-plugin
-    pkgs.xfce.thunar-dropbox-plugin
 
     # Required to run to load kdeconnect: 
     #   qdbus org.kde.kded /kded loadModule kdeconnect
