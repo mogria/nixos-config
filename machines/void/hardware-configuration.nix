@@ -43,5 +43,7 @@
 
   swapDevices = [ ];
 
+  boot.tmpOnTmpfs = true;
+
   nix.maxJobs = lib.mkDefault 8;
 }
