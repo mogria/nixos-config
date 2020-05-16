@@ -36,10 +36,10 @@ in {
     };
   };
 
-  users.groups = [
-    { gid = 1005; name = "guest"; }
-    { gid = 1006; name = "marci"; }
-    { gid = 1007; name = "zahir"; }
-  ];
+  users.groups = {
+    "guest" = { gid = 1005; };
+    "marci" = { gid = 1006; };
+    "zahir" = { gid = 1007; };
+  };
 
 }

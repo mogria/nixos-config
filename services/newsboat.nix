@@ -52,7 +52,7 @@ in {
     inherit home;
   };
 
-  users.groups = [ { gid = 990; name = "newsboat"; } ];
+  users.groups."newsboat" = { gid = 990; };
 
   boot.extraTTYs = ["tty${toString ttyNumber}"];
 
