@@ -54,7 +54,7 @@ in {
 
   users.groups."newsboat" = { gid = 990; };
 
-  boot.extraTTYs = ["tty${toString ttyNumber}"];
+  console.extraTTYs = ["tty${toString ttyNumber}"];
 
   systemd.services."newsboat" = {
     after = [ "network.target" ];
