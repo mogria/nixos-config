@@ -15,7 +15,7 @@
 
   # services.xserver.displayManager.startx.enable = true;
 
-  services.xserver.desktopManager.xfce4 = {
+  services.xserver.desktopManager.xfce = {
     enable = true;
     thunarPlugins = [
       pkgs.xfce.thunar-archive-plugin
