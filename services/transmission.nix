@@ -18,7 +18,10 @@
       "rpc-host-whitelist" = "void,192.168.*.*";
       "rpc-host-whitelist-enabled" = true;
 
+      "encryption" = 1;
       "lpd-enabled" = true; /* local peer discovery */
+      "dht-enabled" = true; /* dht peer discovery in swarm */
+      "pex-enabled" = true; /* peer exchange */
 
       /* ip blocklist */
       "blocklist-enabled" = true;
@@ -28,9 +31,13 @@
 
       /* download speed settings */
       "speed-limit-down" = 1200;
-      "speed-limit-down-enabled" = true;
+      "speed-limit-down-enabled" = false;
       "speed-limit-up" = 120;
       "speed-limit-up-enabled" = true;
+
+      /* seeding limit */
+      "ratio-limit" = 5;
+      "ratio-limit-enabled" = true;
     };
   };
 
