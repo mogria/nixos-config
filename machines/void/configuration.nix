@@ -8,12 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../graphical/xfce-desktop.nix
       ./../../apps/virtualbox.nix
       ./../../users/users.nix
-      ./../../graphical/kde-desktop.nix
+      # ./../../graphical/kde-desktop.nix
       ./../../graphical/plymouth.nix
       ./../../services/transmission.nix
       ./../../services/airsonic.nix
+      ./../../services/docker.nix
       ./../../services/newsboat.nix
       ./../../services/nginx.nix
     ];
