@@ -24,13 +24,15 @@
     # modesetting should resolve tearing, but it doesn't seem to do
     # anything.
     modesetting.enable = true;
-    optimus_prime = {
-      enable = true;
+    prime = {
+      sync.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
       # allowExternalGpu = true;
     };
   };
+
+  hardware.acpilight.enable = true;
 
   # might be better: hardware.acpilight.enable = true;
   # funkioniert mit xbacklight anstatt mit root und `light -S 90`
@@ -43,8 +45,8 @@
   '';
 
 
-  # mit bumblebee kanen nurAapplikatione
-  # die den GPU f√r sich beanspruchen brauchen gestart werden.
+  # mit bumblebee kanen nur Applikationen
+  # die den GPU f√√r sich beanspruchen brauchen gestart werden.
   # Dies w√re sehr n√tzlich um strom zu
   # sparen beim akkubetrieb im gegensatz zu
   # optimus wo die NVIDIA Karte die ganze Zeit luft
