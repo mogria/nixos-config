@@ -38,6 +38,9 @@
     pkgs.xfce.xfce4-clipman-plugin
     pkgs.xfce.xfce4-taskmanager
 
+    # scanning
+    pkgs.gnome3.simple-scan
+
     # Required to run to load kdeconnect: 
     #   qdbus org.kde.kded /kded loadModule kdeconnect
     # on startup
