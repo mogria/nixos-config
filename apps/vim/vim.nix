@@ -9,7 +9,7 @@ let
       vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // (pkgs.callPackage ./additional_plugins.nix {});
       vimrcConfig.vam.pluginDictionaries = [
         { names = [
-            "vundle"
+            "Vundle-vim"
             "vim-nix"
             "vim-addon-vim2nix"
             "vim-vinegar"
