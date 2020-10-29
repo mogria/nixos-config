@@ -4,6 +4,7 @@
   imports = [
       ./fonts.nix
       ./packages.nix
+      ./doc.nix
       # ../apps/glances-tty.nix
       ../apps/adb.nix
       ../services/printing.nix
