@@ -15,6 +15,7 @@
       ./../../graphical/plymouth.nix
       ./../../services/transmission.nix
       ./../../services/airsonic.nix
+      ./../../services/syncthing.nix
       ./../../services/docker.nix
       ./../../services/newsboat.nix
       ./../../services/nginx.nix
