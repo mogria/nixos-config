@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./../../users/minimal.nix
       ./../../graphical/xfce-desktop.nix
+      ./../../services/syncthing.nix
       # ./../../graphical/framebuffer.nix
       # ./../../services/mysql.nix
       # ./../../services/postgres.nix
