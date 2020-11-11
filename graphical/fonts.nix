@@ -18,7 +18,6 @@
       useEmbeddedBitmaps = true;
     };
     enableDefaultFonts = true;
-    enableFontDir = true;
     fonts = [
       pkgs.anonymousPro
       pkgs.arkpandora_ttf
