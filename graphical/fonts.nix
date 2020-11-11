@@ -11,6 +11,11 @@
         sansSerif = [ "Monoid HalfTight Semi-Condensed" "Roboto Regular" "DejaVu Sans" ];
         serif = [ "Roboto Slab Regular" "DejaVu Serif" ];
       };
+	
+      # allow bitmap fonts
+      allowBitmaps = true;
+      # e.g. for Calibro
+      useEmbeddedBitmaps = true;
     };
     enableDefaultFonts = true;
     enableFontDir = true;
