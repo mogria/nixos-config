@@ -22,8 +22,20 @@
 
       folders = {
         "/home/syncthing/data/share" = {
-           id = "share";
-	};
+          label = "Public Share";
+          id = "share";
+          devices = [ "void" "voidbook" "voidphone" ];
+        };
+        "/home/syncthing/data/mogria-private" = {
+          label = "mogria-private";
+          id = "3a6tf-3jkdn";
+          devices = [ "void" "voidbook" "voidphone" ];
+        };
+        "/home/syncthing/data/Android Camera" = {
+          label = "Android Camera";
+          id = "lg-h870_uduj-photos";
+          devices = [ "void" "voidbook" "voidphone" ];
+        };
       };
 
       # overrideFolders = false;
