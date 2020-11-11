@@ -11,10 +11,13 @@
 
     # all_proxy
 
+    group = "users"; # so that all desktop users can access syncthing
+
     declarative = {
       devices = {
         void = { id = "YBWFQ4K-TYDME37-FCMJPBV-QSPIQ45-GL7WJT4-SBO4NHN-CE5HXUH-3HGQKAW"; addresses = [ "tcp://192.168.1.2" "tcp://void.home" ]; introducer = true; };
         voidbook = { id = "X7M3IX6-J47VWTQ-AAH5CTQ-SSZYVUE-RZJPNF7-JDJZ4PX-QMKPCXC-HX23LQC"; addresses = [ "tcp://voidbook.home" ]; introducer = true; };
+        voidphone = { id = "ALXKNUB-MFR2SXS-X56V2PD-572J3NO-K5U5UQN-BP4IFFJ-PYCHZIQ-ZIJGMQ4"; addresses = [ "tcp://voidphone" ]; };
       };
 
       folders = {
