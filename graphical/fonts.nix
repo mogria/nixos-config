@@ -4,7 +4,7 @@
   fonts = {
     fontconfig = {
       enable = true;
-      antialias = true;
+      antialias = false;
       cache32Bit = true;
       defaultFonts = {
         monospace = [ "Monoid HalfTight Semi-Condensed" "Source Code Pro For Powerline" "Roboto Mono" "DejaVu Sans Mono" ];
