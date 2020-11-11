@@ -47,6 +47,7 @@ in {
 
   sudo = super.sudo.override { withInsults = true; };
 
+  monoid = super.callPackage ./monoid.nix { };
 
   perlPackages = super.perlPackages // {
      Autodia = super.perlPackages.Autodia.overrideAttrs (attrs: {
