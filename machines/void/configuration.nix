@@ -19,6 +19,7 @@
       ./../../services/docker.nix
       ./../../services/newsboat.nix
       ./../../services/nginx.nix
+      ./../../services/radicale.nix
     ];
 
   # Use the GRUB 2 boot loader.
