@@ -4,8 +4,8 @@
   fonts = {
     fontconfig = {
       enable = true;
-      antialias = false;
-      cache32Bit = true;
+      antialias = true;
+      hinting.enable = true;
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [ "Monoid HalfTight Semi-Condensed" "Source Code Pro For Powerline" "Roboto Mono" "DejaVu Sans Mono" ];
