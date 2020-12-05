@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../graphical/xfce-desktop.nix
+      ./../../graphical/mate-desktop.nix
       ./../../apps/virtualbox.nix
       ./../../users/users.nix
       # ./../../graphical/kde-desktop.nix
