@@ -5,8 +5,8 @@
     enable = true;
     passwordAuthentication = false;
     /* listenAddresses = [ {
-      addr = "192.168.43.124";
-      port = 50022;
+      addr = "127.0.0.1";
+      port = 22;
     }]; */
   };
 }
