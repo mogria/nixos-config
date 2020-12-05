@@ -15,8 +15,6 @@
   boot.extraModulePackages =  with pkgs.linuxPackages ; [
     nvidia_x11_legacy390
   ];
-  boot.supportedFilesystems = [ "zfs" ];
-
   hardware.enableRedistributableFirmware = true;
   hardware.opengl = {
     enable = true;
@@ -26,11 +24,21 @@
   };
   services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; 
 
+  # Root SSD
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c90674fc-44ad-4e30-bb88-617e903dc23f";
       fsType = "ext4";
     };
 
+
+  # ZFS File systems
+  # For them to mount automatically on system start the following
+  # options need to be set for each zfs device
+  #
+  #  $ zfs set mountpoint=legacy <pool>/<fs>
+  #
+  # See https://nixos.wiki/wiki/NixOS_on_ZFS for more info
+  boot.supportedFilesystems = [ "zfs" ];
   fileSystems."/home" =
     { device = "datadump/home";
       fsType = "zfs";
@@ -41,9 +49,15 @@
       fsType = "zfs";
     };
 
+  services.zfs = {
+    autoScrub.enable = true;
+    autoSnapshot.enable = true;
+  };
+
   swapDevices = [ ];
 
   boot.tmpOnTmpfs = true;
+
 
   nix.maxJobs = lib.mkDefault 8;
 }
