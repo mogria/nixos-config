@@ -28,7 +28,6 @@
       pkgs.comic-relief
       pkgs.crimson
       pkgs.dejavu_fonts
-      pkgs.dejavu_fonts
       pkgs.google-fonts
       pkgs.inconsolata
       pkgs.liberationsansnarrow
