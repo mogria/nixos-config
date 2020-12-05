@@ -13,6 +13,7 @@ in {
     # user 'mogria' is already defined in ./minimal.nix
 
     # loraine was uid 1001
+    # zahir was uid 1007
 
     marci = {
       isNormalUser = true;
@@ -21,12 +22,6 @@ in {
       openssh.authorizedKeys.keyFiles = [
         ./keys/marci_acab_ecdsa.pub
       ];
-    };
-
-    zahir = {
-      isNormalUser = true;
-      uid = 1007;
-      extraGroups = [ "zahir" ] ++ groups.desktopGroups;
     };
 
     guest = {
