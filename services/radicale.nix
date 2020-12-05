@@ -8,6 +8,6 @@
 		[server]
 		# Bind all interfaces on port 5232 
 		hosts = 0.0.0.0:5232
-		''
+		'';
 	};
 }
