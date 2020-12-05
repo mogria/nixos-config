@@ -7,6 +7,7 @@
       antialias = false;
       cache32Bit = true;
       defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
         monospace = [ "Monoid HalfTight Semi-Condensed" "Source Code Pro For Powerline" "Roboto Mono" "DejaVu Sans Mono" ];
         sansSerif = [ "Monoid HalfTight Semi-Condensed" "Roboto Regular" "DejaVu Sans" ];
         serif = [ "Roboto Slab Regular" "DejaVu Serif" ];
