@@ -14,4 +14,7 @@
   # Saves evaluation time & makes the whole setup more reproducible and based on the same nixpkgs as NixOS is.
   # Additionally no configuration of is NIX_PATH needed on NixOS for home-manager.
   home-manager.useGlobalPkgs = true;
+
+  # TODO: maybe add this to channels automatically somehow???
+  # nix.nixPath = [ "home-manager=/nix/var/" ]
 }
