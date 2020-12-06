@@ -13,6 +13,7 @@ in {
       ../../hardware/firmware/nonfree.nix
       ../../hardware/razer.nix
       ../../hardware/nvidia.nix
+      ../../hardware/fwupd.nix
     ];
 
   boot.initrd = {
