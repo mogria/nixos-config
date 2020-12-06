@@ -3,17 +3,8 @@
 {
   imports = [
     ./desktop.nix
+    ./dm.nix
   ];
-
-  services.xserver.displayManager = {
-    lightdm.enable = true;
-    autoLogin = {
-      enable = true;
-      user = "mogria";
-    };
-  };
-
-  # services.xserver.displayManager.startx.enable = true;
 
   services.xserver.desktopManager.xfce = {
     enable = true;

@@ -4,17 +4,8 @@
 {
   imports = [
     ./desktop.nix
+    ./dm.nix
   ];
-
-  services.xserver.displayManager = {
-    lightdm.enable = true;
-    autoLogin = {
-      enable = true;
-      user = "mogria";
-    };
-  };
-
-  # services.xserver.displayManager.startx.enable = true;
 
   environment.mate.excludePackages = [
     pkgs.mate.mate-terminal
