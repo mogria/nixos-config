@@ -9,4 +9,8 @@
     syncEffectsEnabled = true;
     # verboseLogging = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    razergenie
+  ];
 }
