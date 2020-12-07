@@ -11,7 +11,7 @@
 
     # all_proxy
 
-    group = "users"; # so that all desktop users can access syncthing
+    group = "syncthing";
 
     declarative = {
       devices = {
@@ -38,8 +38,16 @@
         };
       };
 
-      # overrideFolders = false;
+      overrideFolders = false;
       # overrideDevices = false;
     };
+
+    openDefaultPorts = true; # TCP 22000 for transfer, UDP 21027 for discovery
   };
+
+  # only open ports for file transfers
+  # network.firewall.allowedTCPPorts = [ 22000 ];
+
+  # so that all desktop users can access syncthing
+  users.users.syncthing.extraGroups = [ "users" ];
 }
