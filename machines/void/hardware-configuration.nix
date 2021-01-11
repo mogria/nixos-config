@@ -52,6 +52,8 @@
   services.zfs = {
     autoScrub.enable = true;
     autoSnapshot.enable = true;
+    # no zfs trim needed as the zfs filesystems reside on non flash based memory
+    # zfs.trim.enable = true
   };
 
   swapDevices = [ ];
