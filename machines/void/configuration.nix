@@ -50,8 +50,8 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
+  # Store SyncthingData on ZFS so it's in the backup as well
+  services.syncthing.dataDir = "/srv/storage/Syncthing";
 
 
   # This value determines the NixOS release with which your system is to be
