@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -49,9 +49,10 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  
 
   # Store SyncthingData on ZFS so it's in the backup as well
-  services.syncthing.dataDir = "/srv/storage/Syncthing";
+  services.syncthing.dataDir = mkForce "/srv/storage/Syncthing";
 
 
   # This value determines the NixOS release with which your system is to be
