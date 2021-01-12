@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../hardware/desktop/monitors.nix
       ./../../users/minimal.nix
       ./../../graphical/xfce-desktop.nix
       ./../../services/syncthing.nix

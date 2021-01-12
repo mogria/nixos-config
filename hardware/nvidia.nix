@@ -18,7 +18,7 @@
   services.xserver.exportConfiguration = true;
 
   # Note, when nvidia is used as the driver no other driver can be used
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" "openchrome" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.nvidia = {
     # modesetting should resolve tearing, but it doesn't seem to do
