@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./../../hardware/desktop/monitors.nix
       ./../../users/minimal.nix
-      ./../../graphical/xfce-desktop.nix
+      ./../../graphical/mate-desktop.nix
       ./../../services/syncthing.nix
       # ./../../graphical/framebuffer.nix
       # ./../../services/mysql.nix
