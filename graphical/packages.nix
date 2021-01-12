@@ -16,6 +16,9 @@
     inkscape
     gimp
     libreoffice
+    hunspellDicts.de_CH
+    hunspellDicts.en_US-large
+    hunspellDicts.en_GB-ise
     evince
     (lib.mkIf (!config.services.transmission.enable) transmission_gtk)
   ];
