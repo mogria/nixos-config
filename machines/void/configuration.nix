@@ -16,7 +16,7 @@
       ./../../services/transmission.nix
       ./../../services/airsonic.nix
       ./../../services/syncthing.nix
-      ./../../services/docker.nix
+      # ./../../services/docker.nix
       ./../../services/gitolite.nix
       ./../../services/newsboat.nix
       ./../../services/nginx.nix
