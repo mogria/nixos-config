@@ -12,7 +12,6 @@
     # disabled, because home-manager installs custom firefox, TODO: integrate the two repos?
     # firefox
     filezilla
-    keepass
     thunderbird
     inkscape
     gimp
