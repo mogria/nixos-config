@@ -12,17 +12,13 @@ in {
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../../hardware/firmware/nonfree.nix
       ../../hardware/razer.nix
+      ../../hardware/kernel.nix
       ../../hardware/nvidia.nix
       ../../hardware/fwupd.nix
     ];
 
-  boot.initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  };
+  boot.extraModulePackages = with config.boot.kernelPackages; [ bbswitch x86_energy_perf_policy ];
 
-  /* driver displaylink requires linux < 5.3, linux_latest is 5.4 and I experienced some breakage anyway (sdcard). */
-  /* boot.kernelPackages = pkgs.linuxPackages_latest; */
-  boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ] ++ (with config.boot.kernelPackages; [ cpupower bbswitch x86_energy_perf_policy ]);
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.cpu.intel.updateMicrocode = true;

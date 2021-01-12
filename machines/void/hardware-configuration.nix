@@ -7,11 +7,9 @@
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ./../../hardware/wifi/dlink-dwa-172.nix
+      ../../hardware/kernel.nix
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelPackages = pkgs.linuxPackages;
   boot.extraModulePackages =  with pkgs.linuxPackages ; [
     nvidia_x11_legacy390
   ];
