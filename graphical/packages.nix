@@ -9,7 +9,8 @@
   environment.systemPackages = with pkgs; [
     wireshark-qt
     vlc
-    firefox
+    # disabled, because home-manager installs custom firefox, TODO: integrate the two repos?
+    # firefox
     filezilla
     keepass
     thunderbird
