@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
+
+let
+  peerPort = 50023;
+in {
   services.transmission = {
     enable = true;
     settings = {
@@ -17,6 +20,10 @@
       "rpc-whitelist" = "127.0.0.1,192.168.*.*";
       "rpc-host-whitelist" = "void,192.168.*.*";
       "rpc-host-whitelist-enabled" = true;
+
+      "port-forwarding-enabled" = true;
+      "peer-port" = peerPort;
+      "peer-port-random-on-start" = false;
 
       "encryption" = 1;
       "lpd-enabled" = true; /* local peer discovery */
@@ -41,5 +48,6 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 9091 ];
+  networking.firewall.allowedTCPPorts = [ 9091 peerPort ];
+  networking.firewall.allowedUDPPorts = [ peerPort ];
 }
