@@ -32,11 +32,11 @@
       /* download speed settings */
       "speed-limit-down" = 1200;
       "speed-limit-down-enabled" = false;
-      "speed-limit-up" = 120;
+      "speed-limit-up" = 500;
       "speed-limit-up-enabled" = true;
 
       /* seeding limit */
-      "ratio-limit" = 5;
+      "ratio-limit" = 10;
       "ratio-limit-enabled" = true;
     };
   };
