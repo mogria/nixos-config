@@ -35,7 +35,8 @@
       "kernel.kexec_load_disabled" = 1;
 
       # disable SysRQ
-      "kernel.unprivileged_userns_clone" = 0;
+      # "kernel.unprivileged_userns_clone" = 0;
+      "kernel.unprivileged_userns_clone" = 1; # needs to be 1 to make chromium/electron work
       # "user.max_user_namespaces" = 0; or even no user namespaces at all?
 
       # disable performance events
@@ -112,4 +113,7 @@
     "apparmor=1"
     "security=apparmor"
   ];
+
+  # make electron apps & chromium work by enabling unprivileged userns clone
+  security.allowUserNamespaces	= true;
 }
