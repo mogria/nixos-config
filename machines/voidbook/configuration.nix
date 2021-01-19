@@ -14,7 +14,6 @@
       ./../../services/syncthing.nix
       # ./../../graphical/framebuffer.nix
       # ./../../services/mysql.nix
-      # ./../../services/postgres.nix
       # ./../../services/docker.nix
       # ./../../services/venus.nix
       # ./../../services/i2p.nix

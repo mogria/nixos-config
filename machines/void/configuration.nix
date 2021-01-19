@@ -20,6 +20,7 @@
       ./../../services/gitolite.nix
       ./../../services/newsboat.nix
       ./../../services/nginx.nix
+      ./../../services/postgres.nix
       ./../../services/radicale.nix
     ];
 
