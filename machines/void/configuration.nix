@@ -53,7 +53,7 @@
   
 
   # Store SyncthingData on ZFS so it's in the backup as well
-  services.syncthing.dataDir = mkForce "/srv/storage/Syncthing";
+  services.syncthing.dataDir = lib.mkForce "/srv/storage/Syncthing";
 
 
   # This value determines the NixOS release with which your system is to be
