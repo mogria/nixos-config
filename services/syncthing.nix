@@ -33,6 +33,11 @@ in {
           id = "3a6tf-3jkdn";
           devices = deviceNames;
         };
+	"${dataDir}/archive" = {
+          label = "archive";
+          id = "KPtFm88hHk";
+          devices = deviceNames;
+	};
         "/home/mogria/Music" = {
           label = "Music";
           id = "pckpd-j4nad";
