@@ -16,14 +16,15 @@ in {
     # user 'mogria' is already defined in ./minimal.nix
 
     # loraine was uid 1001
+    # marci  was uid 1006
     # zahir was uid 1007
 
-    marci = {
+    luca = {
       isNormalUser = true;
-      uid = 1006;
-      extraGroups = [ "marci" ] ++ groups.desktopGroups;
+      uid = 1008;
+      extraGroups = [ "luca" ] ++ groups.desktopGroups;
       openssh.authorizedKeys.keyFiles = [
-        ./keys/marci_acab_ecdsa.pub
+        ./keys/luca_ux303lab_ecdsa.pub
       ];
     };
 
@@ -36,8 +37,7 @@ in {
 
   users.groups = {
     "guest" = { gid = 1005; };
-    "marci" = { gid = 1006; };
-    "zahir" = { gid = 1007; };
+    "luca" = { gid = 1008; };
   };
 
 }
