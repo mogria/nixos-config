@@ -3,6 +3,7 @@
 {
   imports = [
     ./nixpkgs-config.nix
+    ./mogpkgs.nix
     ./gc.nix
   ];
   nix = {
