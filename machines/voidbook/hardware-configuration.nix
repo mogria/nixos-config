@@ -10,11 +10,10 @@ let
 in {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../../hardware/firmware/nonfree.nix
-      ../../hardware/razer.nix
       ../../hardware/kernel.nix
       ../../hardware/nvidia.nix
-      ../../hardware/fwupd.nix
+      ../../hardware/firmware/all.nix
+      ../../hardware/razer.nix
     ];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ bbswitch x86_energy_perf_policy ];
