@@ -5,7 +5,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.kernelPackages = pkgs.linuxPackages;
   boot.extraModulePackages = with config.boot.kernelPackages; [ 
-    exfat-nofuse
+    # exfat-nofuse
     cpupower
   ];
   boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
