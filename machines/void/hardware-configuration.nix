@@ -8,19 +8,11 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ./../../hardware/wifi/dlink-dwa-172.nix
       ../../hardware/kernel.nix
+      ../../hardware/opengl.nix
     ];
 
-  boot.extraModulePackages =  with pkgs.linuxPackages ; [
-    nvidia_x11_legacy390
-  ];
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
-    # driSupport32Bit = true;
-    # extraPackages32 = with pkgs.driversi686Linux; [ glxinfo vaapiIntel libvdpau-va-gl vaapiVdpau ];
-  };
-  services.xserver.videoDrivers = [ "nvidiaLegacy390" ]; 
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
 
   # Root SSD
   fileSystems."/" =
