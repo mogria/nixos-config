@@ -3,6 +3,8 @@
 {
   services.xserver.libinput = {
     enable = true;
-    disableWhileTyping = true;
+    touchpad = {
+      disableWhileTyping = true;
+    };
   };
 }
