@@ -18,10 +18,11 @@
       ./../../services/syncthing.nix
       # ./../../services/docker.nix
       ./../../services/gitolite.nix
-      ./../../services/newsboat.nix
-      ./../../services/nginx.nix
-      ./../../services/postgres.nix
-      ./../../services/radicale.nix
+      # ./../../services/newsboat.nix
+      # ./../../services/i2p.nix
+      # ./../../services/nginx.nix
+      # ./../../services/postgres.nix
+      # ./../../services/radicale.nix
     ];
 
   # Use the GRUB 2 boot loader.
