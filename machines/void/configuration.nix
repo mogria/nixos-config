@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../graphical/mate-desktop.nix
+      ./../../graphical/qtile.nix
       ./../../apps/virtualbox.nix
       ./../../users/users.nix
       # ./../../graphical/kde-desktop.nix
