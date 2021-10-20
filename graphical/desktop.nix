@@ -47,4 +47,8 @@
   ];
 
 
+  #fthis is required for mounting android phones
+  # over mtp://
+  services.gvfs.enable = true;
+
 }
