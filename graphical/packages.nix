@@ -9,8 +9,7 @@
   environment.systemPackages = with pkgs; [
     wireshark-qt
     vlc
-    # disabled, because home-manager installs custom firefox, TODO: integrate the two repos?
-    # firefox
+    firefox
     filezilla
     thunderbird
     inkscape
@@ -22,4 +21,3 @@
     evince
     (lib.mkIf (!config.services.transmission.enable) transmission_gtk)
   ];
-}

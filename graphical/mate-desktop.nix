@@ -3,6 +3,7 @@
 
 {
   imports = [
+    ./packages.nix
     ./desktop.nix
     ./dm.nix
   ];
