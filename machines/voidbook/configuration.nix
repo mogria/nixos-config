@@ -14,8 +14,8 @@
       ./../../graphical/qtile.nix
       ./../../services/syncthing.nix
       # ./../../graphical/framebuffer.nix
-      # ./../../services/mysql.nix
-      # ./../../services/docker.nix
+      ./../../services/mysql.nix
+      ./../../services/docker.nix
       # ./../../services/venus.nix
       # ./../../services/i2p.nix
       # ./../../services/bluetooth.nix
