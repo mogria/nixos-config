@@ -29,17 +29,18 @@
       # ./../../wireguard.nix
       # ./../../services/searx/default.nix
       # ./../../mongo.nix
-      # ./../../apps/virtualbox.nix
-    ];
+      ./../../apps/virtualbox.nix
+      ./../../apps/steam.nix
+      # ./../../services/libvirt.nix
+      # ./../../nix/store-ssh-serve.nix
 
+      # ./../../services/nginx.nix
+      # ./../../services/qemu.nix
+    ];
 
   networking.hostId = "A77B2F82"; # ZFS Needs this
   networking.hostName = "voidbook"; # Define your hostname.
 
   system.stateVersion = "18.03";
-
-  networking.extraHosts = ''
-    127.0.0.1 localtomee
-  '';
 
 }
