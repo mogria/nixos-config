@@ -11,7 +11,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.layout = "us,ch";
   services.xserver.xkbModel = "pc104";
   # Switch Keyboard Layout with ALT+SHIFT and light up scroll lock when switching
   # use menu key as compose key
