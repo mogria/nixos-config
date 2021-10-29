@@ -39,5 +39,7 @@
     fd
     exa
     w3m
+
+    nixops
   ];
 }
