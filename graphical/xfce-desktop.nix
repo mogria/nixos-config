@@ -35,9 +35,9 @@
 
     # Required to run to load kdeconnect: 
     #   qdbus org.kde.kded /kded loadModule kdeconnect
+
     # on startup
     # pkgs.qt5.qttools
-    # pkgs.kdeconnect
     # pkgs.kde-cli-tools
   ];
 
@@ -46,8 +46,6 @@
     # that no service for blueman has been found,...
     (lib.mkIf config.hardware.bluetooth.enable pkgs.blueman)
 
-    #   required to load kdeconnect, for kdeinit5
-    # pkgs.kdeFrameworks.kdbusaddons
   ];
 
   # Enable the GNOME Desktop Environment.
