@@ -4,6 +4,7 @@
   networking.extraHosts = ''
     127.0.0.1 esther-loeffel.dev.local
     127.0.0.1 baukombinat.dev.local
+    127.0.0.1 gartenforst.dev.local
     # 127.0.0.1 esther-loeffel-before-upgrade.dev.local
     ::1  esther-loeffel.dev.local
     ::1  baukombinat.dev.local
@@ -17,19 +18,25 @@
         post_max_size = 20M
         upload_max_filesize = 20M
     '';
-    # phpPackage = pkgs.php56; php 5.6 is not available anymore in nixpkgs
+    phpPackage = pkgs.php73; # php 5.6 is not available anymore in nixpkgs
     adminAddr = "root@localhost";
-    documentRoot = "/var/www";
-    listen = [ { ip = "127.0.0.1"; port = 80; } ];
-    virtualHosts = [
-      {
+    # documentRoot = "/var/www";
+    # listen = [ { ip = "127.0.0.1"; port = 80; } ];
+    virtualHosts = {
+      "esther-loeffel.dev.local" = {
         listen = [ { ip = "127.0.0.1"; port = 80; } ];
-        hostName = "esther-loeffel.dev.local";
         documentRoot = "/var/www/esther-loeffel";
         extraConfig = ''
           DirectoryIndex index.php
         '';
-      }
+      };
+     "gartenforst.dev.local" = {
+        listen = [ { ip = "127.0.0.1"; port = 80; } ];
+        documentRoot = "/var/www/gartenforst";
+        extraConfig = ''
+          DirectoryIndex index.php
+        '';
+      };
       # {
         # listen = [ { ip = "127.0.0.1"; port = 80; } ];
         # hostName = "esther-loeffel-before-upgrade.dev.local";
@@ -38,15 +45,14 @@
           # DirectoryIndex index.php
         # '';
       # }
-      {
+     "baukombinat.dev.local" = {
         listen = [ { ip = "127.0.0.1"; port = 80; } ];
-        hostName = "baukombinat.dev.local";
         documentRoot = "/var/www/baukombinat";
         extraConfig = ''
           DirectoryIndex index.php
         '';
-      }
-    ];
+      };
+    };
 
     extraConfig = ''
       <Directory /var/www>
