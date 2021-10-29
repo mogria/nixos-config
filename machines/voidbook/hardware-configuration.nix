@@ -22,6 +22,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.cpu.intel.updateMicrocode = true;
 
+  boot.supportedFilesystems = [ "zfs" ];
   boot.initrd.luks.mitigateDMAAttacks = true;
   boot.initrd.luks.devices = {
     luks00ssd = {
