@@ -6,10 +6,18 @@
 {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ./../../hardware/wifi/dlink-dwa-172.nix
       ../../hardware/kernel.nix
       ../../hardware/opengl.nix
     ];
+
+      ../../hardware/wifi/dlink-dwa-172.nix
+    ];
+
+  boot.extraModulePackages =  with pkgs.linuxPackages ; [
+    nvidia_x11_legacy390
+  ];
+
+  /* TODO: NIXOS 20.03: ./services/hardware/fancontrol.nix is now available */
 
   hardware.enableRedistributableFirmware = true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
