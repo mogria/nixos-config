@@ -1,22 +1,24 @@
 { pkgs, config, ... }:
 
 let
-    dataDir = "/home/syncthing/data";
+    user = "syncthing"
+    dataDir = "/home/${user}/data";
     devices = {
       void = { id = "YBWFQ4K-TYDME37-FCMJPBV-QSPIQ45-GL7WJT4-SBO4NHN-CE5HXUH-3HGQKAW"; addresses = [ "tcp://192.168.1.2" "tcp://void.home" ]; introducer = true; };
       voidbook = { id = "X7M3IX6-J47VWTQ-AAH5CTQ-SSZYVUE-RZJPNF7-JDJZ4PX-QMKPCXC-HX23LQC"; addresses = [ "tcp://voidbook.home" ]; };
-      voidphone = { id = "ALXKNUB-MFR2SXS-X56V2PD-572J3NO-K5U5UQN-BP4IFFJ-PYCHZIQ-ZIJGMQ4"; addresses = [ "tcp://voidphone" ]; };
+      voidphone = { id = "ALXKNUB-MFR2SXS-X56V2PD-572J3NO-K5U5UQN-BP4IFFJ-PYCHZIQ-ZIJGMQ4"; addresses = [ "tcp://voidphone.home" ]; };
+      pixel4e = { id = "66TC76B-HN7Z7KV-KL4DHDC-SQ2P2E5-3IQMIK3-NL5RIGP-QOLDQLE-JKOD5AD"; addresses = [ "tcp://pixi.home" ]; };
     };
     deviceNames = builtins.attrNames devices;
 
 in {
   services.syncthing = {
     enable = true;
-    configDir = "/home/syncthing/.config/syncthing";
+    configDir = "/home/${user}/.config/syncthing";
     inherit dataDir;
 
     # all_proxy
-    user = "syncthing";
+    inherit user;
     group = "users";
 
     declarative = {
