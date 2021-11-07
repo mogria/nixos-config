@@ -1,8 +1,12 @@
 { pkgs, config, ... }:
 
+# starts up on http://localhost:8384
+# see https://wes.today/nixos-syncthing/
+
 let
-    user = "syncthing"
-    dataDir = "/home/${user}/data";
+    user = "mogria";
+    group = "mogria";
+    dataDir = "/home/${user}/SyncThing";
     devices = {
       void = { id = "YBWFQ4K-TYDME37-FCMJPBV-QSPIQ45-GL7WJT4-SBO4NHN-CE5HXUH-3HGQKAW"; addresses = [ "tcp://192.168.1.2" "tcp://void.home" ]; introducer = true; };
       voidbook = { id = "X7M3IX6-J47VWTQ-AAH5CTQ-SSZYVUE-RZJPNF7-JDJZ4PX-QMKPCXC-HX23LQC"; addresses = [ "tcp://voidbook.home" ]; };
@@ -17,9 +21,7 @@ in {
     configDir = "/home/${user}/.config/syncthing";
     inherit dataDir;
 
-    # all_proxy
-    inherit user;
-    group = "users";
+    inherit user group;
 
     declarative = {
       inherit devices;
@@ -71,7 +73,4 @@ in {
 
   # only open ports for file transfers
   # network.firewall.allowedTCPPorts = [ 22000 ];
-
-  # so that all desktop users can access syncthing
-  users.users.syncthing.extraGroups = [ "syncthing" "users" ];
 }
