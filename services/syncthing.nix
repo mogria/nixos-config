@@ -23,50 +23,48 @@ in {
 
     inherit user group;
 
-    declarative = {
-      inherit devices;
+    inherit devices;
 
-      folders = {
-        "${dataDir}/share" = {
-          label = "Public Share";
-          id = "share";
-          devices = deviceNames;
-        };
-        "${dataDir}/mogria-private" = {
-          label = "mogria-private";
-          id = "3a6tf-3jkdn";
-          devices = deviceNames;
-        };
-	"${dataDir}/archive" = {
-          label = "archive";
-          id = "KPtFm88hHk";
-          devices = deviceNames;
-	};
-        "/home/mogria/Music" = {
-          label = "Music";
-          id = "pckpd-j4nad";
-          devices = deviceNames;
-        };
-        "${dataDir}/Android Camera" = {
-          label = "Android Camera";
-          id = "lg-h870_uduj-photos";
-          devices = deviceNames;
-        };
-        "${dataDir}/Syncthing Camera" = {
-          label = "Syncthing Camera";
-          id = "syncthingAndroidCamera-52x89-60es4";
-          devices = deviceNames;
-        };
-        "${dataDir}/old-dropbox" = {
-          label = "Android Camera";
-          id = "lg-h870_uduj-photos";
-          devices = deviceNames;
-        };
+    folders = {
+      "${dataDir}/share" = {
+        label = "Public Share";
+        id = "share";
+        devices = deviceNames;
       };
-
-      overrideFolders = false;
-      # overrideDevices = false;
+      "${dataDir}/mogria-private" = {
+        label = "mogria-private";
+        id = "3a6tf-3jkdn";
+        devices = deviceNames;
+      };
+	  "${dataDir}/archive" = {
+        label = "archive";
+        id = "KPtFm88hHk";
+        devices = deviceNames;
+	  };
+      "/home/mogria/Music" = {
+        label = "Music";
+        id = "pckpd-j4nad";
+        devices = deviceNames;
+      };
+      "${dataDir}/Android Camera" = {
+        label = "Android Camera";
+        id = "lg-h870_uduj-photos";
+        devices = deviceNames;
+      };
+      "${dataDir}/Syncthing Camera" = {
+        label = "Syncthing Camera";
+        id = "syncthingAndroidCamera-52x89-60es4";
+        devices = deviceNames;
+      };
+      "${dataDir}/old-dropbox" = {
+        label = "Android Camera";
+        id = "lg-h870_uduj-photos";
+        devices = deviceNames;
+      };
     };
+
+    overrideFolders = false;
+    # overrideDevices = false;
 
     openDefaultPorts = true; # TCP 22000 for transfer, UDP 21027 for discovery
   };
