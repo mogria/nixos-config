@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, python3 }:
+{ stdenv, lib, fetchFromGitHub, python3 }:
 # Python 3 support requires https://github.com/larsenwork/monoid/pull/233 to be merged
 
 stdenv.mkDerivation {
@@ -33,7 +33,7 @@ stdenv.mkDerivation {
     install -m444 -Dt $out/share/doc            Readme.md
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "http://larsenwork.com/monoid";
     description = "Customisable coding font with alternates, ligatures and contextual positioning";
     license = [ licenses.ofl licenses.mit ];
