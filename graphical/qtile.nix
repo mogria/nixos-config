@@ -6,13 +6,13 @@ with lib;
   imports = [
     ./qt-packages.nix
     ./desktop.nix
-    ../apps/pcmanfm.nix
+    # ../apps/pcmanfm.nix
   ];
 
   services = {
     xserver = {
       displayManager = {
-        defaultSession = "plasma5+qtile";
+        defaultSession = "plasma";
         autoLogin = {
           user = "mogria";
         };
