@@ -18,7 +18,7 @@
         post_max_size = 20M
         upload_max_filesize = 20M
     '';
-    phpPackage = pkgs.php73; # php 5.6 is not available anymore in nixpkgs
+    phpPackage = pkgs.php;
     adminAddr = "root@localhost";
     # documentRoot = "/var/www";
     # listen = [ { ip = "127.0.0.1"; port = 80; } ];
