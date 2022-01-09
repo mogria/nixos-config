@@ -10,11 +10,20 @@
     wireshark-qt
     vlc
     qutebrowser
+    clementine
     firefox
     libreoffice-qt
-    hunspellDicts.de_CH
     hunspellDicts.en_US-large
     hunspellDicts.en_GB-ise
+    hunspellDicts.de_CH
+    hunspellDicts.de_DE
+    hunspellDicts.fr-moderne
+
     (lib.mkIf (!config.services.transmission.enable) transmission-qt)
+
+    # let's have all the graphics programs
+    krita
+    gimp
+    inkscape
   ];
 }
