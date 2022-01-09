@@ -24,8 +24,11 @@
     # modesetting should resolve tearing, but it doesn't seem to do
     # anything.
     modesetting.enable = true;
+    powerManagement.enable = true;
     prime = {
-      sync.enable = true;
+      # sync.enable = true;
+      # only either offload or sync, powermanagement requires offload
+      offload.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
       # allowExternalGpu = true;
