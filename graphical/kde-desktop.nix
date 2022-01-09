@@ -17,6 +17,7 @@
     kalarmcal
     ark
     pkgs.skanlite
+    pkgs.plasma-browser-integration
   ];
 
 }
