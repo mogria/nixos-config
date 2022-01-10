@@ -14,6 +14,7 @@
       ./../../graphical/qtile.nix
       ./../../services/syncthing.nix
       # ./../../graphical/framebuffer.nix
+      ./../../services/apache2.nix
       ./../../services/mysql.nix
       ./../../services/docker.nix
       # ./../../services/venus.nix

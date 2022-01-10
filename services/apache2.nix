@@ -21,7 +21,7 @@
     phpPackage = pkgs.php;
     adminAddr = "root@localhost";
     # documentRoot = "/var/www";
-    # listen = [ { ip = "127.0.0.1"; port = 80; } ];
+    listen = [ { ip = "127.0.0.1"; port = 80; } ];
     virtualHosts = {
       "esther-loeffel.dev.local" = {
         listen = [ { ip = "127.0.0.1"; port = 80; } ];
