@@ -3,6 +3,7 @@
 {
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
 
     # Enable 32bit stuff for games in steam
