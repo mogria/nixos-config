@@ -21,20 +21,10 @@ with lib;
           enableHidpi = true;
           # theme = "dasd";
         };
-        session = [ {
-          manage = "desktop";
-          name = "qtile-mogria";
-          start = ''
-            export XDG_CONFIG_HOME="\$\{XDG_CONFIG_HOME:-$HOME/.config\}"
-            ${pkgs.libsForQt5.kservice}/bin/kuildsycoca5 
 
-            pcmanfm-qt -d &
-            qtile &
-            waitPID=$!
-          '';
-        } ];
-        # setupCommands = startplasma;
-
+        # sessionCommands = ''
+        #   export KDEWM=`which qtile`
+        # '';
       };
 
       windowManager.qtile.enable = true;
@@ -56,6 +46,32 @@ with lib;
 
   };
 
+
+
+  # Qtile add python dependencies used in the configuration file
+  #
+  # https://www.reddit.com/r/NixOS/comments/p71gun/help_with_qtile_please/
+  #nixpkgs.overlays = [
+  # 	(self: super: {
+  #     			qtile = super.qtile.overrideAttrs(oldAttrs: {
+  #     			pythonPath = oldAttrs.pythonPath ++ (with self.python37Packages;[
+  #         			keyring
+  #         			xcffib
+  #         			setuptools
+  #         			setuptools_scm
+  #         			dateutil
+  #         			dbus-python
+  #         			mpd2
+  #         			psutil
+  #         			pyxdg
+  #         			pygobject3
+  #     			]);
+
+  #     		);
+
+  # 	})
+
+  #];
 
   environment.systemPackages = with pkgs; (
       with libsForQt5; [

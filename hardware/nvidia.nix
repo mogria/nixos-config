@@ -39,13 +39,13 @@
 
   # might be better: hardware.acpilight.enable = true;
   # funkioniert mit xbacklight anstatt mit root und `light -S 90`
-  programs.light.enable = true;
+  # programs.light.enable = true;
 
-  services.xserver.displayManager.setupCommands = ''
-    # Fix for optimus without bumblebee
-    ${pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource modesetting NVIDIA-0
-    ${pkgs.xorg.xrandr}/bin/xrandr --auto
-  '';
+  # services.xserver.displayManager.setupCommands = ''
+  #   # Fix for optimus without bumblebee
+  #   ${pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource modesetting NVIDIA-0
+  #   ${pkgs.xorg.xrandr}/bin/xrandr --auto
+  # '';
 
 
   # mit bumblebee kanen nur Applikationen
